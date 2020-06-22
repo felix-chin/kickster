@@ -21,10 +21,30 @@ header {
   height: 70%;
 }
 
-.choose-club-heading {
-
-}
-
 .main {
   height: 83%;
+}
+
+.main-wrapper {
+  width: 100%;
+}
+
+.choose-club-heading {
+  height: 14%;
+  width: 100%;
+  font-family: 'Alfa Slab One'
+}
+
+.club-logos-wrapper {
+  height: 86%;
+}
+
+.club-logos-row {
+  width: 100%;
+  height: 22%
+}
+
+img {
+  max-width: 100%;
+  height: auto
 }
