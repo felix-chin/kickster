@@ -18,7 +18,7 @@ header {
 }
 
 .epl-logo {
-  height: 70%;
+  width: 38%;
 }
 
 .main {
@@ -37,14 +37,13 @@ header {
 
 .club-logos-wrapper {
   height: 86%;
+  margin: 0 3%;
 }
 
-.club-logos-row {
-  width: 100%;
-  height: 22%
+.club-logo {
+  padding: 1%;
 }
 
 img {
-  max-width: 100%;
-  height: auto
+  width: 100%;
 }
