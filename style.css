@@ -18,13 +18,32 @@ header {
 }
 
 .epl-logo {
-  height: 70%;
-}
-
-.choose-club-heading {
-
+  width: 38%;
 }
 
 .main {
   height: 83%;
+}
+
+.main-wrapper {
+  width: 100%;
+}
+
+.choose-club-heading {
+  height: 14%;
+  width: 100%;
+  font-family: 'Alfa Slab One'
+}
+
+.club-logos-wrapper {
+  height: 86%;
+  margin: 0 3%;
+}
+
+.club-logo {
+  padding: 1%;
+}
+
+img {
+  width: 100%;
 }
