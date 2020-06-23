@@ -12,20 +12,26 @@ body {
   background-color: #9D175F;
 }
 
+.team-header {
+  height: 17%;
+  width: 100%;
+  position: fixed;
+}
+
 header {
   height: 100%;
   width: 100%;
 }
 
 .epl-logo {
-  width: 38%;
+  width: 36%;
 }
 
-.main {
+.home {
   height: 83%;
 }
 
-.main-wrapper {
+.home-wrapper {
   width: 100%;
 }
 
@@ -49,6 +55,25 @@ header {
   transform: scale(1.15);
 }
 
-img {
+.club-logo > img {
+  width: 100%;
+}
+
+.club-details {
+  height: 83%;
+}
+
+.match-history {
+  height: 40%;
+  width: 100%;
+}
+
+.article {
+  height: 40%;
+  width: 100%;
+}
+
+.stadium {
+  height: 20%;
   width: 100%;
 }
