@@ -6,97 +6,130 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css">
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <title>EPL 2019/2020 Club Report</title>
+  <link rel="stylesheet" href="logos.css">
+  <title>EPL 2019/2020 Team Report</title>
 </head>
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row heading">
-      <header class="d-flex flex-column align-items-center justify-content-center">
-        <img class="epl-logo" src="images/epl-logo.png" alt="epl-logo">
-        <h6>2019/2020 Club Report</h6>
-      </header>
+      <div class="home-header">
+        <div class="d-flex align-items-center justify-content-center h-100">
+          <header class="d-flex flex-column align-items-center justify-content-center">
+            <img class="epl-logo" src="images/epl-logo.png" alt="epl-logo">
+            <h6>2019/2020 Team Report</h6>
+          </header>
+        </div>
+      </div>
+      <div class="team-header d-none">
+        <div class="d-flex align-items-center h-100">
+          <div class="logo-container d-flex justify-content-center align-items-center">
+            <div class="logo-header"></div>
+          </div>
+          <div class="team-text d-flex flex-column justify-content-center h-100">
+            <h6 class="team-name"></h6>
+            <span class="venue-name"></span>
+            <span class="website"></span>
+          </div>
+          <div class="home-container d-flex justify-content-center align-items-center">
+            <div class="epl-header"></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="row main">
-      <main class="main-wrapper d-flex flex-column">
+    <div class="row home">
+      <div class="home-wrapper d-flex flex-column">
         <div class="choose-club-heading d-flex align-items-center justify-content-center">
-          <h5>Choose a club</h5>
+          <h5>Choose a team</h5>
         </div>
         <div class="club-logos-wrapper">
-          <div class="d-flex">
+          <div class="d-flex justify-content-between">
             <div class="club-logo col-md-auto">
-              <img id="bournemouth" src="images/afcbournemouth-logo.png" alt="bournemouth-logo">
+              <img data-club="19" src="images/afcbournemouth-logo.png" alt="bournemouth-logo">
             </div>
             <div class="club-logo col-md-auto">
-              <img id="arsenal" src="images/arsenal-logo.png" alt="arsenal-logo">
+              <img data-club="0" src="images/arsenal-logo.png" alt="arsenal-logo">
             </div>
             <div class="club-logo col-md-auto">
-              <img id="astonvilla" src="images/astonvilla-logo.png" alt="astonvilla-logo">
+              <img data-club="1" src="images/astonvilla-logo.png" alt="astonvilla-logo">
             </div>
             <div class="club-logo col-md-auto">
-              <img id="brighton" src="images/brighton-logo.png" alt="brighton-logo">
-            </div>
-          </div>
-          <div class="d-flex">
-            <div class="club-logo col-md-auto">
-              <img id="" src="images/burnley-logo.png" alt="">
-            </div>
-            <div class="club-logo col-md-auto">
-              <img id="" src="images/chelsea-logo.png" alt="">
-            </div>
-            <div class="club-logo col-md-auto">
-              <img id="" src="images/crystalpalace-logo.png" alt="">
-            </div>
-            <div class="club-logo col-md-auto">
-              <img id="" src="images/everton-logo.png" alt="">
+              <img data-club="17" src="images/brighton-logo.png" alt="brighton-logo">
             </div>
           </div>
-          <div class="d-flex">
+          <div class="d-flex justify-content-between">
             <div class="club-logo col-md-auto">
-              <img id="" src="images/leicester-logo.png" alt="">
+              <img data-club="11" src="images/burnley-logo.png" alt="burnley-logo">
             </div>
             <div class="club-logo col-md-auto">
-              <img id="" src="images/liverpool-logo.png" alt="">
+              <img data-club="2" src="images/chelsea-logo.png" alt="chelsea-logo">
             </div>
             <div class="club-logo col-md-auto">
-              <img id="" src="images/mancity-logo.png" alt="">
+              <img data-club="15" src="images/crystalpalace-logo.png" alt="">
             </div>
             <div class="club-logo col-md-auto">
-              <img id="" src="images/manu-logo.png" alt="">
-            </div>
-          </div>
-          <div class="d-flex">
-            <div class="club-logo col-md-auto">
-              <img id="" src="images/newcastle-logo.png" alt="">
-            </div>
-            <div class="club-logo col-md-auto">
-              <img id="" src="images/norwich-logo.png" alt="">
-            </div>
-            <div class="club-logo col-md-auto">
-              <img id="" src="images/sheffield-logo.png" alt="">
-            </div>
-            <div class="club-logo col-md-auto">
-              <img id="" src="images/southampton-logo.png" alt="">
+              <img data-club="3" src="images/everton-logo.png" alt="">
             </div>
           </div>
-          <div class="d-flex">
+          <div class="d-flex justify-content-between">
             <div class="club-logo col-md-auto">
-              <img id="" src="images/tottenham-logo.png" alt="">
+              <img data-club="12" src="images/leicester-logo.png" alt="">
             </div>
             <div class="club-logo col-md-auto">
-              <img id="" src="images/watford-logo.png" alt="">
+              <img data-club="4" src="images/liverpool-logo.png" alt="">
             </div>
             <div class="club-logo col-md-auto">
-              <img id="" src="images/westham-logo.png" alt="">
+              <img data-club="5" src="images/mancity-logo.png" alt="">
             </div>
             <div class="club-logo col-md-auto">
-              <img id="" src="images/wolves-logo.png" alt="">
+              <img data-club="6" src="images/manu-logo.png" alt="">
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <div class="club-logo col-md-auto">
+              <img data-club="7" src="images/newcastle-logo.png" alt="">
+            </div>
+            <div class="club-logo col-md-auto">
+              <img data-club="8" src="images/norwich-logo.png" alt="">
+            </div>
+            <div class="club-logo col-md-auto">
+              <img data-club="16" src="images/sheffield-logo.png" alt="">
+            </div>
+            <div class="club-logo col-md-auto">
+              <img data-club="13" src="images/southampton-logo.png" alt="">
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <div class="club-logo col-md-auto">
+              <img data-club="9" src="images/tottenham-logo.png" alt="">
+            </div>
+            <div class="club-logo col-md-auto">
+              <img data-club="14" src="images/watford-logo.png" alt="">
+            </div>
+            <div class="club-logo col-md-auto">
+              <img data-club="18" src="images/westham-logo.png" alt="">
+            </div>
+            <div class="club-logo col-md-auto">
+              <img data-club="10" src="images/wolves-logo.png" alt="">
             </div>
           </div>
         </div>
-      </main>
+      </div>
+    </div>
+    <div class="row club-details d-none">
+      <div class="match-history d-flex flex-column justify-content-center align-items-center">
+        <h6>Last 4 Match Results</h6>
+        <div><span class="match1Home"></span> - <span class="match1Away"></span></div>
+        <div><span class="match2Home"></span> - <span class="match2Away"></span></div>
+        <div><span class="match3Home"></span> - <span class="match3Away"></span></div>
+        <div><span class="match4Home"></span> - <span class="match4Away"></span></div>
+      </div>
+      <div class="article"></div>
+      <div id="map"></div>
+      <div class="stadium-location">Stadium Location</div>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC37G_TaabnjhwNuCove5iXzL_qQmS7X7E"></script>
   <script src="main.js"></script>
 </body>
 </html>
