@@ -127,13 +127,23 @@ html, body {
   height: 40%;
   width: 100%;
   background-color: lightgray;
+  font-size: 14px;
+}
+
+.article-group > div {
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .stadium-location {
   position: absolute;
-  bottom: 24%;
-  left: 32%;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
   font-weight: bold;
+  text-align: center;
+  background-color: lightsteelblue;
 }
 
 #map {

@@ -1,9 +1,9 @@
-const clubLogos = document.querySelector('.club-logos-wrapper');
 let clubSelected = null;
 let teams = [];
 let matches = [];
 const date = new Date();
-const currentDate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+const currentDate = new Date(date.getTime() - (24*60*60*1000) - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+const clubLogos = document.querySelector('.club-logos-wrapper');
 const homeHeader = document.querySelector('.home-header');
 const homePage = document.querySelector('.home');
 const teamHeader = document.querySelector('.team-header');
@@ -13,10 +13,24 @@ const stadium = document.querySelector('.venue-name');
 const website = document.querySelector('.website');
 const logoHeader = document.querySelector('.logo-header');
 const eplHeader = document.querySelector('.epl-header');
+const match1Home = document.querySelector('.match1Home');
+const match1Away = document.querySelector('.match1Away');
+const match2Home = document.querySelector('.match2Home');
+const match2Away = document.querySelector('.match2Away');
+const match3Home = document.querySelector('.match3Home');
+const match3Away = document.querySelector('.match3Away');
+const match4Home = document.querySelector('.match4Home');
+const match4Away = document.querySelector('.match4Away');
+const article1 = document.querySelector('.article1');
+const article2 = document.querySelector('.article2');
+const article3 = document.querySelector('.article3');
+const article4 = document.querySelector('.article4');
+let matchReport = null;
 
 getTeams();
 
 clubLogos.addEventListener('click', onLogoClick);
+eplHeader.addEventListener('click', reset);
 
 function onLogoClick(event) {
   const element = event.target;
@@ -38,7 +52,6 @@ function populateTeam() {
   website.textContent = teams[clubSelected].website;
   logoHeader.classList.add(teams[clubSelected].tla);
   eplHeader.classList.add('epl');
-  eplHeader.addEventListener('click', reset);
 }
 
 function reset() {
@@ -46,17 +59,10 @@ function reset() {
   homePage.classList.remove('d-none');
   clubDetails.classList.add('d-none');
   teamHeader.classList.add('d-none');
+  logoHeader.classList.remove(teams[clubSelected].tla);
 }
 
 function populateMatchHistory() {
-  const match1Home = document.querySelector('.match1Home');
-  const match1Away = document.querySelector('.match1Away');
-  const match2Home = document.querySelector('.match2Home');
-  const match2Away = document.querySelector('.match2Away');
-  const match3Home = document.querySelector('.match3Home');
-  const match3Away = document.querySelector('.match3Away');
-  const match4Home = document.querySelector('.match4Home');
-  const match4Away = document.querySelector('.match4Away');
   const match1HomeTeam = matches[matches.length - 1]['homeTeam']['name'];
   const match1AwayTeam = matches[matches.length - 1]['awayTeam']['name'];
   const match1HomeScore = matches[matches.length - 1]['score']['fullTime']['homeTeam'];
@@ -81,7 +87,6 @@ function populateMatchHistory() {
   match3Away.textContent = `${match3AwayScore} ${match3AwayTeam}`;
   match4Home.textContent = `${match4HomeTeam} ${match4HomeScore}`;
   match4Away.textContent = `${match4AwayScore} ${match4AwayTeam}`;
-
 }
 
 function handleGetError(error) {
@@ -111,6 +116,7 @@ function handleGetMatchesSuccess(data) {
   matches = data.matches;
   populateTeam();
   populateMatchHistory();
+  getNewsArticle();
   initMap();
 }
 
@@ -131,23 +137,40 @@ function getMatches() {
   })
 }
 
+function handleGetNewsArticleSuccess (data) {
+  matchReport = data.response.results;
+  const link1 = matchReport[0].webTitle.link(matchReport[0].webUrl);
+  const link2 = matchReport[1].webTitle.link(matchReport[1].webUrl);
+  const link3 = matchReport[2].webTitle.link(matchReport[2].webUrl);
+  const link4 = matchReport[3].webTitle.link(matchReport[3].webUrl);
+  article1.innerHTML = link1;
+  article2.innerHTML = link2;
+  article3.innerHTML = link3;
+  article4.innerHTML = link4;
+}
+
 function getNewsArticle() {
   $.ajax({
     method: "GET",
-    url: ""+"",
+    url: "https://content.guardianapis.com/search",
     data: {
-      "dateFrom": "2019-08-06",
-      "dateTo": currentDate,
-      "competitions": "2021"
+      "api-key": "a8d15746-592e-4adf-96a5-171b4d3e254c",
+      "tag": "tone/matchreports,football/premierleague",
+      "q": teams[clubSelected].name,
+      "order-by": "newest",
+      "page-size": 4
     },
     error: handleGetError,
-    success: handleGetMatchesSuccess
+    success: handleGetNewsArticleSuccess
   })
 }
 
 function initMap() {
   const map = new google.maps.Map(
-    document.getElementById('map'), { zoom: 15});
+    document.getElementById('map'), {
+      zoom: 15,
+      gestureHandling: 'cooperative'
+    });
   const geocoder = new google.maps.Geocoder();
   geocodeAddress(geocoder, map);
 }
