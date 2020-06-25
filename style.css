@@ -11,7 +11,7 @@ html, body {
 }
 
 .heading {
-  height: 15%;
+  height: 18%;
   color: white;
   background-color: #9D175F;
 }
@@ -29,7 +29,6 @@ html, body {
 }
 
 .choose-team-heading {
-  min-height: 12%;
   font-family: 'Alfa Slab One'
 }
 
