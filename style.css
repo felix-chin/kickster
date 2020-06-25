@@ -55,6 +55,7 @@ html, body {
 }
 
 .details-header {
+  min-height: 100%;
   width: 100%;
 }
 
@@ -69,6 +70,7 @@ html, body {
 .epl-icon-wrapper {
   height: 4rem;
   width: 4rem;
+  margin-right: 2%;
 }
 
 .details-team-logo, .epl {
@@ -79,12 +81,12 @@ html, body {
   background-size: cover;
 }
 
-.team-text {
-  width: 60%;
+.team-text-wrapper {
+  width: 55%;
   margin-left: 3%;
 }
 
-.team-text > span {
+.team-text-wrapper > span {
   font-size: 12px;
 }
 
@@ -121,7 +123,7 @@ html, body {
   width: 100%;
   background-color: lightgray;
   font-size: 14px;
-  padding: 2%;
+  padding: 0 3%;
 }
 
 .article-group > div {
@@ -143,4 +145,22 @@ html, body {
 #map {
   height: 30%;
   width: 100%;
+}
+
+@media only screen and (min-width: 576px) {
+  .team-logo > img {
+    width: 52%;
+  }
+
+  .choose-team-heading {
+    font-size: 16px;
+  }
+
+  header {
+    width: 75%;
+  }
+
+  .epl-logo {
+    width: 25%;
+  }
 }
