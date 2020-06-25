@@ -1,12 +1,16 @@
 html, body {
   font-family: Roboto;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
+.container-fluid {
+  height: 100vh;
+}
+
 .heading {
-  height: 15%;
+  height: 20%;
   color: white;
   background-color: #9D175F;
 }
@@ -16,7 +20,7 @@ html, body {
 }
 
 .epl-logo {
-  width: 40%;
+  width: 45%;
 }
 
 .home-wrapper {
@@ -24,7 +28,8 @@ html, body {
 }
 
 .choose-team-heading {
-  font-family: 'Alfa Slab One'
+  font-family: 'Alfa Slab One';
+  margin: 3% 0;
 }
 
 .team-logos-wrapper {
@@ -84,12 +89,11 @@ html, body {
 }
 
 .team-details {
-  height: 83%;
+  height: 80%;
   position: relative;
 }
 
 .match-history {
-  height: 30%;
   width: 100%;
 }
 .match-history div {
@@ -114,10 +118,10 @@ html, body {
 }
 
 .article {
-  height: 40%;
   width: 100%;
   background-color: lightgray;
   font-size: 14px;
+  padding: 2%;
 }
 
 .article-group > div {
@@ -140,5 +144,3 @@ html, body {
   height: 30%;
   width: 100%;
 }
-
-@media only screen and
