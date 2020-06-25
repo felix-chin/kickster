@@ -6,12 +6,12 @@ const currentDate = new Date(date.getTime() - (24*60*60*1000) - (date.getTimezon
 const clubLogos = document.querySelector('.club-logos-wrapper');
 const homeHeader = document.querySelector('.home-header');
 const homePage = document.querySelector('.home');
-const teamHeader = document.querySelector('.team-header');
+const detailsHeader = document.querySelector('.details-header');
 const clubDetails = document.querySelector('.club-details');
 const team = document.querySelector('.team-name');
 const stadium = document.querySelector('.venue-name');
 const website = document.querySelector('.website');
-const logoHeader = document.querySelector('.logo-header');
+const detailsTeamLogo = document.querySelector('.details-team-logo');
 const eplHeader = document.querySelector('.epl-header');
 const match1Home = document.querySelector('.match1Home');
 const match1Away = document.querySelector('.match1Away');
@@ -46,20 +46,20 @@ function populateTeam() {
   homeHeader.classList.add('d-none');
   homePage.classList.add('d-none');
   clubDetails.classList.remove('d-none');
-  teamHeader.classList.remove('d-none');
+  detailsHeader.classList.remove('d-none');
   team.textContent = teams[clubSelected].name;
   stadium.textContent = teams[clubSelected].venue;
-  website.textContent = teams[clubSelected].website;
-  logoHeader.classList.add(teams[clubSelected].tla);
-  eplHeader.classList.add('epl');
+  website.innerHTML = teams[clubSelected].website.link(teams[clubSelected].website);
+  detailsTeamLogo.classList.add(teams[clubSelected].tla);
+  eplHeader.classList.add('epl-icon');
 }
 
 function reset() {
   homeHeader.classList.remove('d-none');
   homePage.classList.remove('d-none');
   clubDetails.classList.add('d-none');
-  teamHeader.classList.add('d-none');
-  logoHeader.classList.remove(teams[clubSelected].tla);
+  detailsHeader.classList.add('d-none');
+  detailsTeamLogo.classList.remove(teams[clubSelected].tla);
 }
 
 function populateMatchHistory() {
@@ -184,8 +184,6 @@ function geocodeAddress(geocoder, resultsMap) {
         map: resultsMap,
         position: results[0].geometry.location
       });
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
     }
   });
 }

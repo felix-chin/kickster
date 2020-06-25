@@ -6,33 +6,26 @@ html, body {
 }
 
 .container-fluid {
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
 }
 
 .heading {
-  height: 17%;
+  height: 15%;
   color: white;
   background-color: #9D175F;
 }
 
-.team-header {
-  height: 17%;
+.details-header {
   width: 100%;
-  position: fixed;
 }
 
 .home-header {
-  height: 100%;
   width: 100%;
 }
 
 .epl-logo {
   width: 40%;
-}
-
-.home {
-  height: 83%;
 }
 
 .home-wrapper {
@@ -59,8 +52,12 @@ html, body {
   transform: scale(1.15);
 }
 
+.club-logo:hover {
+  transform: scale(1.15);
+}
+
 .club-logo > img {
-  width: 100%;
+  cursor: pointer;
 }
 
 .logo-container {
@@ -72,11 +69,11 @@ html, body {
 }
 
 .home-container {
+  min-height: 4rem;
   width: 4rem;
-  height: 4rem;
 }
 
-.logo-header, .epl-header {
+.details-team-logo, .epl-header {
   height: 85%;
   width: 85%;
   background-position: center;
