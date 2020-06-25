@@ -16,10 +16,6 @@ html, body {
   background-color: #9D175F;
 }
 
-.details-header {
-  width: 100%;
-}
-
 .home-header {
   width: 100%;
 }
@@ -32,48 +28,49 @@ html, body {
   width: 100%;
 }
 
-.choose-club-heading {
-  height: 14%;
-  width: 100%;
+.choose-team-heading {
   font-family: 'Alfa Slab One'
 }
 
-.club-logos-wrapper {
-  height: 86%;
+.team-logos-wrapper {
   margin: 0 3%;
 }
 
-.club-logo {
+.team-logo {
   padding: 1%;
   transition: transform 200ms;
 }
 
-.club-logo:active {
+.team-logo:active {
   transform: scale(1.15);
 }
 
-.club-logo:hover {
+.team-logo:hover {
   transform: scale(1.15);
 }
 
-.club-logo > img {
+.team-logo > img {
   cursor: pointer;
 }
 
-.logo-container {
-  width: 4rem;
-  height: 4rem;
+.details-header {
+  width: 100%;
+}
+
+.logo-wrapper {
+  width: 5rem;
+  height: 5rem;
   background-color: white;
   border-radius: 50%;
   margin-left: 3%;
 }
 
-.home-container {
-  min-height: 4rem;
+.epl-icon-wrapper {
+  height: 4rem;
   width: 4rem;
 }
 
-.details-team-logo, .epl-header {
+.details-team-logo, .epl {
   height: 85%;
   width: 85%;
   background-position: center;
@@ -90,7 +87,7 @@ html, body {
   font-size: 12px;
 }
 
-.club-details {
+.team-details {
   height: 83%;
   position: relative;
 }

@@ -1,18 +1,19 @@
-let clubSelected = null;
+let teamSelected = null;
 let teams = [];
 let matches = [];
+let matchReport = null;
 const date = new Date();
 const currentDate = new Date(date.getTime() - (24*60*60*1000) - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
-const clubLogos = document.querySelector('.club-logos-wrapper');
+const teamLogos = document.querySelector('.team-logos-wrapper');
 const homeHeader = document.querySelector('.home-header');
 const homePage = document.querySelector('.home');
 const detailsHeader = document.querySelector('.details-header');
-const clubDetails = document.querySelector('.club-details');
+const teamDetails = document.querySelector('.team-details');
 const team = document.querySelector('.team-name');
 const stadium = document.querySelector('.venue-name');
 const website = document.querySelector('.website');
 const detailsTeamLogo = document.querySelector('.details-team-logo');
-const eplHeader = document.querySelector('.epl-header');
+const epl = document.querySelector('.epl');
 const match1Home = document.querySelector('.match1Home');
 const match1Away = document.querySelector('.match1Away');
 const match2Home = document.querySelector('.match2Home');
@@ -25,19 +26,18 @@ const article1 = document.querySelector('.article1');
 const article2 = document.querySelector('.article2');
 const article3 = document.querySelector('.article3');
 const article4 = document.querySelector('.article4');
-let matchReport = null;
 
 getTeams();
 
-clubLogos.addEventListener('click', onLogoClick);
-eplHeader.addEventListener('click', reset);
+teamLogos.addEventListener('click', onLogoClick);
+epl.addEventListener('click', reset);
 
 function onLogoClick(event) {
   const element = event.target;
-  if(!element.hasAttribute('data-club')) {
+  if(!element.hasAttribute('data-team')) {
     return;
   }
-  clubSelected = element.getAttribute('data-club');
+  teamSelected = element.getAttribute('data-team');
   getMatches();
 }
 
@@ -45,21 +45,21 @@ function onLogoClick(event) {
 function populateTeam() {
   homeHeader.classList.add('d-none');
   homePage.classList.add('d-none');
-  clubDetails.classList.remove('d-none');
+  teamDetails.classList.remove('d-none');
   detailsHeader.classList.remove('d-none');
-  team.textContent = teams[clubSelected].name;
-  stadium.textContent = teams[clubSelected].venue;
-  website.innerHTML = teams[clubSelected].website.link(teams[clubSelected].website);
-  detailsTeamLogo.classList.add(teams[clubSelected].tla);
-  eplHeader.classList.add('epl-icon');
+  team.textContent = teams[teamSelected].name;
+  stadium.textContent = teams[teamSelected].venue;
+  website.innerHTML = teams[teamSelected].website.link(teams[teamSelected].website);
+  detailsTeamLogo.classList.add(teams[teamSelected].tla);
+  epl.classList.add('epl-icon');
 }
 
 function reset() {
   homeHeader.classList.remove('d-none');
   homePage.classList.remove('d-none');
-  clubDetails.classList.add('d-none');
+  teamDetails.classList.add('d-none');
   detailsHeader.classList.add('d-none');
-  detailsTeamLogo.classList.remove(teams[clubSelected].tla);
+  detailsTeamLogo.classList.remove(teams[teamSelected].tla);
 }
 
 function populateMatchHistory() {
@@ -123,7 +123,7 @@ function handleGetMatchesSuccess(data) {
 function getMatches() {
   $.ajax({
     method: "GET",
-    url: "http://api.football-data.org/v2/teams/" + teams[clubSelected].id + "/matches/",
+    url: "http://api.football-data.org/v2/teams/" + teams[teamSelected].id + "/matches/",
     headers: {
       "X-Auth-Token":"2e33b10247bd4841be2fec54f309863c"
     },
@@ -156,7 +156,7 @@ function getNewsArticle() {
     data: {
       "api-key": "a8d15746-592e-4adf-96a5-171b4d3e254c",
       "tag": "tone/matchreports,football/premierleague",
-      "q": teams[clubSelected].name,
+      "q": teams[teamSelected].name,
       "order-by": "newest",
       "page-size": 4
     },
@@ -176,7 +176,7 @@ function initMap() {
 }
 
 function geocodeAddress(geocoder, resultsMap) {
-  const address = teams[clubSelected]["address"];
+  const address = teams[teamSelected]["address"];
   geocoder.geocode({ 'address': address }, function (results, status) {
     if (status === 'OK') {
       resultsMap.setCenter(results[0].geometry.location);
