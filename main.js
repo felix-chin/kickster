@@ -18,6 +18,8 @@ let match3HomeScore = null;
 let match3AwayScore = null;
 let match4HomeScore = null;
 let match4AwayScore = null;
+let highlightsArray = [];
+let matchVideo = null;
 const date = new Date();
 const currentDate = new Date(date.getTime() - (12*60*60*1000) - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
 const teamLogos = document.querySelector('.team-logos-wrapper');
@@ -44,11 +46,21 @@ const article3 = document.querySelector('.article3');
 const article4 = document.querySelector('.article4');
 const stadiumLocation = document.querySelector('.stadium-location');
 const loader = document.querySelector('.loading-modal');
+const matchHistory = document.querySelector('.match-history');
+const highlights = document.querySelector('.highlights');
+const closeButton = document.querySelector('.close-button');
+const iframe = document.querySelector('iframe');
+
 
 getTeams();
 
 teamLogos.addEventListener('click', onLogoClick);
 homeButton.addEventListener('click', reset);
+matchHistory.addEventListener('click', playHighlights);
+closeButton.addEventListener('click', function () {
+  highlights.classList.add('d-none');
+  iframe.src = '';
+})
 
 function onLogoClick(event) {
   const element = event.target;
@@ -57,6 +69,24 @@ function onLogoClick(event) {
   }
   teamSelected = element.getAttribute('data-team');
   getMatches();
+}
+
+function playHighlights(event) {
+  const element = event.target;
+  if (!element.hasAttribute('data-video')) {
+    return;
+  }
+  highlights.classList.remove('d-none');
+  matchVideo = element.getAttribute('data-video');
+  if(matchVideo === '1') {
+    iframe.src = 'https://www.youtube.com/embed?listType=search&list=nbcsports%' + match1HomeTeam + '%' + match1AwayTeam;
+  } else if (matchVideo === '2') {
+    iframe.src = 'https://www.youtube.com/embed?listType=search&list=nbcsports%' + match2HomeTeam + '%' + match2AwayTeam;
+  } else if (matchVideo === '3') {
+    iframe.src = 'https://www.youtube.com/embed?listType=search&list=nbcsports%' + match3HomeTeam + '%' + match3AwayTeam;
+  } else if (matchVideo === '4') {
+    iframe.src = 'https://www.youtube.com/embed?listType=search&list=nbcsports%' + match4HomeTeam + '%' + match4AwayTeam;
+  }
 }
 
 function loadingScreen() {

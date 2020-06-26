@@ -185,6 +185,26 @@ html, body {
   animation-duration: 1s
 }
 
+.highlights {
+  background-color: rgba(116, 115, 115, 0.349);
+  position: fixed;
+  z-index: 1;
+  width: 100vw;
+  height: 81vh;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-button {
+  font-size: 48px;
+  position: fixed;
+  top: 23%;
+  right: 5%;
+}
+
 @keyframes animatebottom {
   from {
     bottom:-200px;
@@ -262,11 +282,6 @@ html, body {
     width: 60%;
   }
 
-  .logo-wrapper {
-    width: 9rem;
-    height: 9rem;
-  }
-
   header > h6 {
     font-size: 24px;
   }
@@ -298,6 +313,11 @@ html, body {
     width: 100%;
   }
 
+  .logo-wrapper {
+    width: 9rem;
+    height: 9rem;
+  }
+
   .stadium-location {
     bottom: 13%;
     font-size: 18px;
@@ -305,6 +325,10 @@ html, body {
 
   #map {
     min-height: 26vh;
+  }
+
+  .article {
+    height: 32vh;
   }
 
   .match-history > h6, .article > h6 {
@@ -317,6 +341,9 @@ html, body {
 
   .match-history > div > span, .article-group > div > a {
     font-size: 22px;
+  }
+  .article-group > div {
+    margin: 0 1%;
   }
 }
 
@@ -340,6 +367,11 @@ html, body {
     position: fixed;
     top: 11%;
     left: 40%;
+  }
+
+  .logo-wrapper {
+    width: 7.5rem;
+    height: 7.5rem;
   }
 
   .stadium-location {
