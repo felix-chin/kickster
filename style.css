@@ -75,7 +75,12 @@ html, body {
   margin-left: 3%;
 }
 
-.team-text-wrapper > span {
+.team-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.venue-name, .website {
   font-size: 14px;
 }
 
@@ -123,6 +128,7 @@ html, body {
 .article-group > div {
   font-size: 14px;
   font-weight: bold;
+  padding: 1% 0;
 }
 
 .stadium-location {
@@ -137,18 +143,17 @@ html, body {
 }
 
 #map {
-  height: 22vh;
+  min-height: 19vh;
   width: 100%;
 }
 
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 576px) and (max-width: 767px){
   .team-logo > img {
     width: 63%;
   }
 
   .choose-team-heading {
     color: white;
-    font-family: 'Alfa Slab One';
     font-size: 14px;
     margin: 1% 0;
     position: fixed;
@@ -169,11 +174,90 @@ html, body {
   }
 
   .logo-wrapper {
-    width: 4rem;
-    height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
   }
 
   #map {
     height: 23vh;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .team-logo > img {
+    width: 110%;
+  }
+  .epl-logo {
+    width: 60%;
+  }
+
+  header > h6 {
+    font-size: 24px;
+  }
+
+  .choose-team-heading > span {
+    font-size: 24px;
+  }
+
+  .logo-wrapper {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+
+  .team-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .venue-name, .website {
+    font-size: 18px;
+  }
+
+  .home-button {
+    font-size: 48px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .team-logo > img {
+    width: 90%;
+  }
+  .epl-logo {
+    width: 30%;
+  }
+
+  header > h6 {
+    font-size: 24px;
+  }
+
+.choose-team-heading {
+    color: white;
+    font-size: 14px;
+    margin: 1% 0;
+    position: fixed;
+    top: 11%;
+    left: 40%;
+  }
+
+  .choose-team-heading > span {
+    font-size: 24px;
+  }
+
+  .logo-wrapper {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+
+  .team-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .venue-name, .website {
+    font-size: 18px;
+  }
+
+  .home-button {
+    font-size: 48px;
   }
 }

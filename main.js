@@ -228,14 +228,22 @@ function getMatches() {
 
 function handleGetNewsArticleSuccess (data) {
   matchReport = data.response.results;
-  const link1 = matchReport[0].webTitle.link(matchReport[0].webUrl);
-  const link2 = matchReport[1].webTitle.link(matchReport[1].webUrl);
-  const link3 = matchReport[2].webTitle.link(matchReport[2].webUrl);
-  const link4 = matchReport[3].webTitle.link(matchReport[3].webUrl);
-  article1.innerHTML = link1;
-  article2.innerHTML = link2;
-  article3.innerHTML = link3;
-  article4.innerHTML = link4;
+  const text1 = matchReport[0].webTitle;
+  const text2 = matchReport[1].webTitle;
+  const text3 = matchReport[2].webTitle;
+  const text4 = matchReport[3].webTitle;
+  const link1 = matchReport[0].webUrl;
+  const link2 = matchReport[1].webUrl;
+  const link3 = matchReport[2].webUrl;
+  const link4 = matchReport[3].webUrl;
+  article1.textContent = text1;
+  article2.textContent = text2;
+  article3.textContent = text3;
+  article4.textContent = text4;
+  article1.setAttribute('href', link1);
+  article2.setAttribute('href', link2);
+  article3.setAttribute('href', link3);
+  article4.setAttribute('href', link4);
 }
 
 function getNewsArticle() {
