@@ -1,6 +1,6 @@
 html, body {
   font-family: Roboto;
-  height: 100%;
+  height: 97vh;
   margin: 0;
   padding: 0;
 }
@@ -46,7 +46,7 @@ html, body {
 }
 
 .team-logo > img {
-  width: 100%;
+  width: 95%;
   cursor: pointer;
 }
 
@@ -153,7 +153,7 @@ html, body {
   }
 
   .epl-logo {
-    width: 30%;
+    width: 29%;
   }
 
   .choose-team-heading {
@@ -179,24 +179,13 @@ html, body {
   }
 
   #map {
-    height: 23vh;
+    min-height: 23vh;
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .team-logo > img {
-    width: 110%;
-  }
+@media only screen and (min-width: 768px) {
   .epl-logo {
     width: 60%;
-  }
-
-  header > h6 {
-    font-size: 24px;
-  }
-
-  .choose-team-heading > span {
-    font-size: 24px;
   }
 
   .logo-wrapper {
@@ -204,8 +193,12 @@ html, body {
     height: 7.5rem;
   }
 
-  .team-name {
+  header > h6 {
     font-size: 24px;
+  }
+
+  .team-name {
+    font-size: 32px;
     font-weight: bold;
   }
 
@@ -216,22 +209,53 @@ html, body {
   .home-button {
     font-size: 48px;
   }
+
+  .choose-team-heading > span {
+    font-size: 24px;
+  }
+
+  .match-history > h6, .article > h6 {
+    font-size: 24px;
+  }
+
+  .match-history > div > span {
+    margin-bottom: 2%;
+  }
+
+  .match-history > div > span, .article-group > div > a {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .team-logo > img {
+    width: 100%;
+  }
+
+  .stadium-location {
+    bottom: 13%;
+    font-size: 18px;
+  }
+
+  #map {
+    min-height: 26vh;
+  }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .team-logos-wrapper {
+    margin: 3% 0;
+  }
+
   .team-logo > img {
-    width: 90%;
+    width: 80%;
   }
 
   .epl-logo {
     width: 30%;
   }
 
-  header > h6 {
-    font-size: 24px;
-  }
-
-.choose-team-heading {
+  .choose-team-heading {
     color: white;
     font-size: 14px;
     margin: 1% 0;
@@ -240,8 +264,13 @@ html, body {
     left: 40%;
   }
 
-  .choose-team-heading > span {
-    font-size: 24px;
+  .stadium-location {
+    bottom: 15%;
+    font-size: 20px;
+  }
+
+  #map {
+    min-height: 35vh;
   }
 }
 
@@ -251,33 +280,7 @@ html, body {
     margin: 5% 0;
   }
 
-  .epl-logo {
-    width: 60%;
-  }
-
-  header > h6 {
-    font-size: 24px;
-  }
-
   .choose-team-heading > span {
     font-size: 36px;
-  }
-
-  .logo-wrapper {
-    width: 7.5rem;
-    height: 7.5rem;
-  }
-
-  .team-name {
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  .venue-name, .website {
-    font-size: 18px;
-  }
-
-  .home-button {
-    font-size: 48px;
   }
 }

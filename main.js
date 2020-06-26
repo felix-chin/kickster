@@ -132,6 +132,9 @@ function colorScore() {
   } else if (match1AwayScore > match1HomeScore) {
     match1Away.style.color = '#E4B222';
     match1Away.style.fontWeight = 'bold';
+  } else if (match1AwayScore === match1HomeScore) {
+    match1Away.style.fontWeight = 'bold';
+    match1Home.style.fontWeight = 'bold';
   }
   if (match2HomeScore > match2AwayScore) {
     match2Home.style.color = '#E4B222';
@@ -139,6 +142,9 @@ function colorScore() {
   } else if (match2AwayScore > match2HomeScore) {
     match2Away.style.color = '#E4B222';
     match2Away.style.fontWeight = 'bold';
+  } else if (match2AwayScore === match2HomeScore) {
+    match2Away.style.fontWeight = 'bold';
+    match2Home.style.fontWeight = 'bold';
   }
   if (match3HomeScore > match3AwayScore) {
     match3Home.style.color = '#E4B222';
@@ -146,6 +152,9 @@ function colorScore() {
   } else if (match3AwayScore > match3HomeScore) {
     match3Away.style.color = '#E4B222';
     match3Away.style.fontWeight = 'bold';
+  } else if (match3AwayScore === match3HomeScore) {
+    match3Away.style.fontWeight = 'bold';
+    match3Home.style.fontWeight = 'bold';
   }
   if (match4HomeScore > match4AwayScore) {
     match4Home.style.color = '#E4B222';
@@ -153,6 +162,9 @@ function colorScore() {
   } else if (match4AwayScore > match4HomeScore) {
     match4Away.style.color = '#E4B222';
     match4Away.style.fontWeight = 'bold';
+  } else if (match4AwayScore === match4HomeScore) {
+    match4Away.style.fontWeight = 'bold';
+    match4Home.style.fontWeight = 'bold';
   }
 }
 
