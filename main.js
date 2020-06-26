@@ -43,6 +43,7 @@ const article2 = document.querySelector('.article2');
 const article3 = document.querySelector('.article3');
 const article4 = document.querySelector('.article4');
 const stadiumLocation = document.querySelector('.stadium-location');
+const loader = document.querySelector('.loading-modal');
 
 getTeams();
 
@@ -58,18 +59,26 @@ function onLogoClick(event) {
   getMatches();
 }
 
+function loadingScreen() {
+  loader.classList.remove('d-none');
+  setTimeout(function() {
+    loader.classList.add('d-none');
+  }, 2000)
+}
 
 function populateTeam() {
   homeHeader.classList.add('d-none');
   homePage.classList.add('d-none');
-  teamDetails.classList.remove('d-none');
-  detailsHeader.classList.remove('d-none');
-  team.textContent = teams[teamSelected].name;
-  stadium.textContent = teams[teamSelected].venue;
-  stadiumLocation.textContent = teams[teamSelected].venue;
-  website.textContent = teams[teamSelected].website;
-  website.setAttribute('href', teams[teamSelected].website);
-  detailsTeamLogo.classList.add(teams[teamSelected].tla);
+  setTimeout(function() {
+    teamDetails.classList.remove('d-none');
+    detailsHeader.classList.remove('d-none');
+    team.textContent = teams[teamSelected].name;
+    stadium.textContent = teams[teamSelected].venue;
+    stadiumLocation.textContent = teams[teamSelected].venue;
+    website.textContent = teams[teamSelected].website;
+    website.setAttribute('href', teams[teamSelected].website);
+    detailsTeamLogo.classList.add(teams[teamSelected].tla);
+  }, 2000);
 }
 
 function reset() {
@@ -214,6 +223,7 @@ function getTeams() {
 
 function handleGetMatchesSuccess(data) {
   matches = data.matches;
+  loadingScreen();
   populateTeam();
   populateMatchHistory();
   getNewsArticle();

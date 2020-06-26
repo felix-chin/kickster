@@ -147,6 +147,80 @@ html, body {
   width: 100%;
 }
 
+.loading-modal {
+  background-color: white;
+  position: fixed;
+  z-index: 1;
+  width: 100vw;
+  height: 81vh;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  animation: spin 2s linear infinite;
+}
+
+.loader > img {
+  width: 140px;
+}
+
+.animate-bottom {
+  position: relative;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+.animate-fade-in {
+  position: relative;
+  animation-name: animatefade;
+  animation-duration: 1s
+}
+.animate-left {
+  position: relative;
+  animation-name: animateleft;
+  animation-duration: 1s
+}
+
+@keyframes animatebottom {
+  from {
+    bottom:-200px;
+    opacity:0
+  }
+  to {
+    bottom:0;
+    opacity:1
+  }
+}
+
+@keyframes animatefade {
+  from {
+    opacity:0
+  }
+  to {
+    opacity:1
+  }
+}
+
+@keyframes animateleft {
+  from {
+    left:-200px;
+    opacity:0
+  }
+  to {
+    left:0;
+    opacity:1
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 @media only screen and (min-width: 576px) and (max-width: 767px){
   .team-logo > img {
     width: 63%;
@@ -189,8 +263,8 @@ html, body {
   }
 
   .logo-wrapper {
-    width: 7.5rem;
-    height: 7.5rem;
+    width: 9rem;
+    height: 9rem;
   }
 
   header > h6 {
@@ -213,21 +287,13 @@ html, body {
   .choose-team-heading > span {
     font-size: 24px;
   }
-
-  .match-history > h6, .article > h6 {
-    font-size: 24px;
-  }
-
-  .match-history > div > span {
-    margin-bottom: 2%;
-  }
-
-  .match-history > div > span, .article-group > div > a {
-    font-size: 20px;
-  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  .team-logo {
+    margin-bottom: 4%;
+  }
+
   .team-logo > img {
     width: 100%;
   }
@@ -239,6 +305,18 @@ html, body {
 
   #map {
     min-height: 26vh;
+  }
+
+  .match-history > h6, .article > h6 {
+    font-size: 28px;
+  }
+
+  .match-history > div > span {
+    margin-bottom: 2%;
+  }
+
+  .match-history > div > span, .article-group > div > a {
+    font-size: 22px;
   }
 }
 
@@ -271,6 +349,18 @@ html, body {
 
   #map {
     min-height: 35vh;
+  }
+
+  .match-history > h6, .article > h6 {
+    font-size: 24px;
+  }
+
+  .match-history > div > span {
+    margin-bottom: 2%;
+  }
+
+  .match-history > div > span, .article-group > div > a {
+    font-size: 20px;
   }
 }
 
