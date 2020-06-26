@@ -44,8 +44,6 @@ const article3 = document.querySelector('.article3');
 const article4 = document.querySelector('.article4');
 const stadiumLocation = document.querySelector('.stadium-location');
 
-
-
 getTeams();
 
 teamLogos.addEventListener('click', onLogoClick);
@@ -69,7 +67,8 @@ function populateTeam() {
   team.textContent = teams[teamSelected].name;
   stadium.textContent = teams[teamSelected].venue;
   stadiumLocation.textContent = teams[teamSelected].venue;
-  website.innerHTML = teams[teamSelected].website.link(teams[teamSelected].website);
+  website.textContent = teams[teamSelected].website;
+  website.setAttribute('href', teams[teamSelected].website);
   detailsTeamLogo.classList.add(teams[teamSelected].tla);
 }
 
