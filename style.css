@@ -152,6 +152,10 @@ html, body {
     width: 63%;
   }
 
+  .epl-logo {
+    width: 30%;
+  }
+
   .choose-team-heading {
     color: white;
     font-size: 14px;
@@ -163,10 +167,6 @@ html, body {
 
   header {
     width: 58%;
-  }
-
-  .epl-logo {
-    width: 30%;
   }
 
   .article-group div {
@@ -183,7 +183,7 @@ html, body {
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (min-width: 768px) and (max-width: 991px) {
   .team-logo > img {
     width: 110%;
   }
@@ -218,10 +218,11 @@ html, body {
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
   .team-logo > img {
     width: 90%;
   }
+
   .epl-logo {
     width: 30%;
   }
@@ -241,6 +242,25 @@ html, body {
 
   .choose-team-heading > span {
     font-size: 24px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .team-logo > img {
+    width: 140%;
+    margin: 5% 0;
+  }
+
+  .epl-logo {
+    width: 60%;
+  }
+
+  header > h6 {
+    font-size: 24px;
+  }
+
+  .choose-team-heading > span {
+    font-size: 36px;
   }
 
   .logo-wrapper {
