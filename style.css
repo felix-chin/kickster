@@ -345,7 +345,7 @@ iframe {
   }
 
   .match-history > h6, .article > h6 {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .match-history > div > span {
@@ -353,10 +353,7 @@ iframe {
   }
 
   .match-history > div > span, .article-group > div > a {
-    font-size: 22px;
-  }
-  .article-group > div {
-    margin: 0 1%;
+    font-size: 20px;
   }
 }
 
