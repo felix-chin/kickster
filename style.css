@@ -6,11 +6,11 @@ html, body {
 }
 
 .container-fluid {
-  height: 100vh;
+  height: 97vh;
 }
 
 .heading {
-  height: 20%;
+  height: 19vh;
   color: white;
   background-color: #9D175F;
 }
@@ -29,11 +29,7 @@ html, body {
 
 .choose-team-heading {
   font-family: 'Alfa Slab One';
-  margin: 3% 0;
-}
-
-.team-logos-wrapper {
-  margin: 0 3%;
+  margin: 4% 0;
 }
 
 .team-logo {
@@ -64,16 +60,9 @@ html, body {
   height: 5rem;
   background-color: white;
   border-radius: 50%;
-  margin-left: 3%;
 }
 
-.epl-icon-wrapper {
-  height: 4rem;
-  width: 4rem;
-  margin-right: 2%;
-}
-
-.details-team-logo, .epl {
+.details-team-logo {
   height: 85%;
   width: 85%;
   background-position: center;
@@ -87,17 +76,22 @@ html, body {
 }
 
 .team-text-wrapper > span {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .team-details {
-  height: 80%;
   position: relative;
 }
 
+.home-button {
+  font-size: 24px;
+}
+
 .match-history {
+  min-height: 23vh;
   width: 100%;
 }
+
 .match-history div {
   display: flex;
   width: 100%;
@@ -105,7 +99,7 @@ html, body {
 
 .match-history div span {
   flex: 1;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 24px;
 }
 
@@ -121,7 +115,7 @@ html, body {
 
 .article {
   width: 100%;
-  background-color: lightgray;
+  background-color: #BBCBCB;
   font-size: 14px;
   padding: 0 3%;
 }
@@ -133,34 +127,53 @@ html, body {
 
 .stadium-location {
   position: absolute;
-  bottom: 10%;
+  bottom: 7%;
   left: 50%;
   transform: translateX(-50%);
-  width: 140px;
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
-  background-color: lightsteelblue;
+  background-color: rgba(176, 196, 222, 0.85);
 }
 
 #map {
-  height: 30%;
+  height: 22vh;
   width: 100%;
 }
 
 @media only screen and (min-width: 576px) {
   .team-logo > img {
-    width: 52%;
+    width: 63%;
   }
 
   .choose-team-heading {
-    font-size: 16px;
+    color: white;
+    font-family: 'Alfa Slab One';
+    font-size: 14px;
+    margin: 1% 0;
+    position: fixed;
+    top: 11%;
+    left: 42%;
   }
 
   header {
-    width: 75%;
+    width: 58%;
   }
 
   .epl-logo {
-    width: 25%;
+    width: 30%;
+  }
+
+  .article-group div {
+    font-size: 12px;
+  }
+
+  .logo-wrapper {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  #map {
+    height: 23vh;
   }
 }
