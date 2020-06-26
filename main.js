@@ -2,8 +2,24 @@ let teamSelected = null;
 let teams = [];
 let matches = [];
 let matchReport = null;
+let match1HomeTeam = '';
+let match1AwayTeam = '';
+let match2HomeTeam = '';
+let match2AwayTeam = '';
+let match3HomeTeam = '';
+let match3AwayTeam = '';
+let match4HomeTeam = '';
+let match4AwayTeam = '';
+let match1HomeScore = null;
+let match1AwayScore = null;
+let match2HomeScore = null;
+let match2AwayScore = null;
+let match3HomeScore = null;
+let match3AwayScore = null;
+let match4HomeScore = null;
+let match4AwayScore = null;
 const date = new Date();
-const currentDate = new Date(date.getTime() - (24*60*60*1000) - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+const currentDate = new Date(date.getTime() - (12*60*60*1000) - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
 const teamLogos = document.querySelector('.team-logos-wrapper');
 const homeHeader = document.querySelector('.home-header');
 const homePage = document.querySelector('.home');
@@ -13,7 +29,7 @@ const team = document.querySelector('.team-name');
 const stadium = document.querySelector('.venue-name');
 const website = document.querySelector('.website');
 const detailsTeamLogo = document.querySelector('.details-team-logo');
-const epl = document.querySelector('.epl');
+const homeButton = document.querySelector('.home-button');
 const match1Home = document.querySelector('.match1Home');
 const match1Away = document.querySelector('.match1Away');
 const match2Home = document.querySelector('.match2Home');
@@ -26,11 +42,12 @@ const article1 = document.querySelector('.article1');
 const article2 = document.querySelector('.article2');
 const article3 = document.querySelector('.article3');
 const article4 = document.querySelector('.article4');
+const stadiumLocation = document.querySelector('.stadium-location');
 
 getTeams();
 
 teamLogos.addEventListener('click', onLogoClick);
-epl.addEventListener('click', reset);
+homeButton.addEventListener('click', reset);
 
 function onLogoClick(event) {
   const element = event.target;
@@ -49,9 +66,10 @@ function populateTeam() {
   detailsHeader.classList.remove('d-none');
   team.textContent = teams[teamSelected].name;
   stadium.textContent = teams[teamSelected].venue;
-  website.innerHTML = teams[teamSelected].website.link(teams[teamSelected].website);
+  stadiumLocation.textContent = teams[teamSelected].venue;
+  website.textContent = teams[teamSelected].website;
+  website.setAttribute('href', teams[teamSelected].website);
   detailsTeamLogo.classList.add(teams[teamSelected].tla);
-  epl.classList.add('epl-icon');
 }
 
 function reset() {
@@ -60,25 +78,107 @@ function reset() {
   teamDetails.classList.add('d-none');
   detailsHeader.classList.add('d-none');
   detailsTeamLogo.classList.remove(teams[teamSelected].tla);
+  match1Home.style.color = '';
+  match1Home.style.fontWeight = '';
+  match1Away.style.color = '';
+  match1Away.style.fontWeight = '';
+  match2Home.style.color = '';
+  match2Home.style.fontWeight = '';
+  match2Away.style.color = '';
+  match2Away.style.fontWeight = '';
+  match3Home.style.color = '';
+  match3Home.style.fontWeight = '';
+  match3Away.style.color = '';
+  match3Away.style.fontWeight = '';
+  match4Home.style.color = '';
+  match4Home.style.fontWeight = '';
+  match4Away.style.color = '';
+  match4Away.style.fontWeight = '';
+}
+
+function getTeamNames() {
+  for (let i = 0; i < teams.length; i++) {
+    if (matches[matches.length - 1]['homeTeam']['id'] === teams[i]['id']) {
+      match1HomeTeam = teams[i]['shortName'];
+    }
+    if (matches[matches.length - 1]['awayTeam']['id'] === teams[i]['id']) {
+      match1AwayTeam = teams[i]['shortName'];
+    }
+    if (matches[matches.length - 2]['homeTeam']['id'] === teams[i]['id']) {
+      match2HomeTeam = teams[i]['shortName'];
+    }
+    if (matches[matches.length - 2]['awayTeam']['id'] === teams[i]['id']) {
+      match2AwayTeam = teams[i]['shortName'];
+    }
+    if (matches[matches.length - 3]['homeTeam']['id'] === teams[i]['id']) {
+      match3HomeTeam = teams[i]['shortName'];
+    }
+    if (matches[matches.length - 3]['awayTeam']['id'] === teams[i]['id']) {
+      match3AwayTeam = teams[i]['shortName'];
+    }
+    if (matches[matches.length - 4]['homeTeam']['id'] === teams[i]['id']) {
+      match4HomeTeam = teams[i]['shortName'];
+    }
+    if (matches[matches.length - 4]['awayTeam']['id'] === teams[i]['id']) {
+      match4AwayTeam = teams[i]['shortName'];
+    }
+  }
+}
+
+function colorScore() {
+  if(match1HomeScore > match1AwayScore) {
+    match1Home.style.color = '#E4B222';
+    match1Home.style.fontWeight = 'bold';
+  } else if (match1AwayScore > match1HomeScore) {
+    match1Away.style.color = '#E4B222';
+    match1Away.style.fontWeight = 'bold';
+  } else if (match1AwayScore === match1HomeScore) {
+    match1Away.style.fontWeight = 'bold';
+    match1Home.style.fontWeight = 'bold';
+  }
+  if (match2HomeScore > match2AwayScore) {
+    match2Home.style.color = '#E4B222';
+    match2Home.style.fontWeight = 'bold';
+  } else if (match2AwayScore > match2HomeScore) {
+    match2Away.style.color = '#E4B222';
+    match2Away.style.fontWeight = 'bold';
+  } else if (match2AwayScore === match2HomeScore) {
+    match2Away.style.fontWeight = 'bold';
+    match2Home.style.fontWeight = 'bold';
+  }
+  if (match3HomeScore > match3AwayScore) {
+    match3Home.style.color = '#E4B222';
+    match3Home.style.fontWeight = 'bold';
+  } else if (match3AwayScore > match3HomeScore) {
+    match3Away.style.color = '#E4B222';
+    match3Away.style.fontWeight = 'bold';
+  } else if (match3AwayScore === match3HomeScore) {
+    match3Away.style.fontWeight = 'bold';
+    match3Home.style.fontWeight = 'bold';
+  }
+  if (match4HomeScore > match4AwayScore) {
+    match4Home.style.color = '#E4B222';
+    match4Home.style.fontWeight = 'bold';
+  } else if (match4AwayScore > match4HomeScore) {
+    match4Away.style.color = '#E4B222';
+    match4Away.style.fontWeight = 'bold';
+  } else if (match4AwayScore === match4HomeScore) {
+    match4Away.style.fontWeight = 'bold';
+    match4Home.style.fontWeight = 'bold';
+  }
 }
 
 function populateMatchHistory() {
-  const match1HomeTeam = matches[matches.length - 1]['homeTeam']['name'];
-  const match1AwayTeam = matches[matches.length - 1]['awayTeam']['name'];
-  const match1HomeScore = matches[matches.length - 1]['score']['fullTime']['homeTeam'];
-  const match1AwayScore = matches[matches.length - 1]['score']['fullTime']['awayTeam'];
-  const match2HomeTeam = matches[matches.length - 2]['homeTeam']['name'];
-  const match2AwayTeam = matches[matches.length - 2]['awayTeam']['name'];
-  const match2HomeScore = matches[matches.length - 2]['score']['fullTime']['homeTeam'];
-  const match2AwayScore = matches[matches.length - 2]['score']['fullTime']['awayTeam'];
-  const match3HomeTeam = matches[matches.length - 3]['homeTeam']['name'];
-  const match3AwayTeam = matches[matches.length - 3]['awayTeam']['name'];
-  const match3HomeScore = matches[matches.length - 3]['score']['fullTime']['homeTeam'];
-  const match3AwayScore = matches[matches.length - 3]['score']['fullTime']['awayTeam'];
-  const match4HomeTeam = matches[matches.length - 4]['homeTeam']['name'];
-  const match4AwayTeam = matches[matches.length - 4]['awayTeam']['name'];
-  const match4HomeScore = matches[matches.length - 4]['score']['fullTime']['homeTeam'];
-  const match4AwayScore = matches[matches.length - 4]['score']['fullTime']['awayTeam'];
+  match1HomeScore = matches[matches.length - 1]['score']['fullTime']['homeTeam'];
+  match1AwayScore = matches[matches.length - 1]['score']['fullTime']['awayTeam'];
+  match2HomeScore = matches[matches.length - 2]['score']['fullTime']['homeTeam'];
+  match2AwayScore = matches[matches.length - 2]['score']['fullTime']['awayTeam'];
+  match3HomeScore = matches[matches.length - 3]['score']['fullTime']['homeTeam'];
+  match3AwayScore = matches[matches.length - 3]['score']['fullTime']['awayTeam'];
+  match4HomeScore = matches[matches.length - 4]['score']['fullTime']['homeTeam'];
+  match4AwayScore = matches[matches.length - 4]['score']['fullTime']['awayTeam'];
+  getTeamNames();
+  colorScore();
   match1Home.textContent = `${match1HomeTeam} ${match1HomeScore}`;
   match1Away.textContent = `${match1AwayScore} ${match1AwayTeam}`;
   match2Home.textContent = `${match2HomeTeam} ${match2HomeScore}`;
@@ -139,14 +239,22 @@ function getMatches() {
 
 function handleGetNewsArticleSuccess (data) {
   matchReport = data.response.results;
-  const link1 = matchReport[0].webTitle.link(matchReport[0].webUrl);
-  const link2 = matchReport[1].webTitle.link(matchReport[1].webUrl);
-  const link3 = matchReport[2].webTitle.link(matchReport[2].webUrl);
-  const link4 = matchReport[3].webTitle.link(matchReport[3].webUrl);
-  article1.innerHTML = link1;
-  article2.innerHTML = link2;
-  article3.innerHTML = link3;
-  article4.innerHTML = link4;
+  const text1 = matchReport[0].webTitle;
+  const text2 = matchReport[1].webTitle;
+  const text3 = matchReport[2].webTitle;
+  const text4 = matchReport[3].webTitle;
+  const link1 = matchReport[0].webUrl;
+  const link2 = matchReport[1].webUrl;
+  const link3 = matchReport[2].webUrl;
+  const link4 = matchReport[3].webUrl;
+  article1.textContent = text1;
+  article2.textContent = text2;
+  article3.textContent = text3;
+  article4.textContent = text4;
+  article1.setAttribute('href', link1);
+  article2.setAttribute('href', link2);
+  article3.setAttribute('href', link3);
+  article4.setAttribute('href', link4);
 }
 
 function getNewsArticle() {
