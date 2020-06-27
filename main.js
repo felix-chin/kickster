@@ -93,7 +93,7 @@ function loadingScreen() {
   loader.classList.remove('d-none');
   setTimeout(function() {
     loader.classList.add('d-none');
-  }, 2000)
+  }, 1000)
 }
 
 function populateTeam() {
@@ -108,7 +108,7 @@ function populateTeam() {
     website.textContent = teams[teamSelected].website;
     website.setAttribute('href', teams[teamSelected].website);
     detailsTeamLogo.classList.add(teams[teamSelected].tla);
-  }, 2000);
+  }, 1000);
 }
 
 function reset() {

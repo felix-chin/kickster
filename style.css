@@ -164,25 +164,13 @@ html, body {
   animation: spin 2s linear infinite;
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .loader > img {
   width: 140px;
-}
-
-.animate-bottom {
-  position: relative;
-  animation-name: animatebottom;
-  animation-duration: 1s
-}
-
-.animate-fade-in {
-  position: relative;
-  animation-name: animatefade;
-  animation-duration: 1s
-}
-.animate-left {
-  position: relative;
-  animation-name: animateleft;
-  animation-duration: 1s
 }
 
 .highlights {
@@ -208,6 +196,23 @@ html, body {
 iframe {
   width: 350px;
   min-height: 250px;
+}
+
+.animate-bottom {
+  position: relative;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+.animate-fade-in {
+  position: relative;
+  animation-name: animatefade;
+  animation-duration: 1s
+}
+.animate-left {
+  position: relative;
+  animation-name: animateleft;
+  animation-duration: 1s
 }
 
 @keyframes animatebottom {
@@ -239,11 +244,6 @@ iframe {
     left:0;
     opacity:1
   }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px){
