@@ -194,8 +194,8 @@ html, body {
 }
 
 iframe {
-  width: 350px;
-  min-height: 250px;
+  width: 320px;
+  min-height: 180px;
 }
 
 .animate-bottom {
@@ -207,11 +207,18 @@ iframe {
 .animate-fade-in {
   position: relative;
   animation-name: animatefade;
-  animation-duration: 1s
+  animation-duration: 2s
 }
+
 .animate-left {
   position: relative;
   animation-name: animateleft;
+  animation-duration: 1s
+}
+
+.animate-right {
+  position: relative;
+  animation-name: animateright;
   animation-duration: 1s
 }
 
@@ -237,11 +244,22 @@ iframe {
 
 @keyframes animateleft {
   from {
-    left:-200px;
+    left:-500px;
     opacity:0
   }
   to {
     left:0;
+    opacity:1
+  }
+}
+
+@keyframes animateright {
+  from {
+    right:-500px;
+    opacity:0
+  }
+  to {
+    right:0;
     opacity:1
   }
 }
@@ -403,6 +421,13 @@ iframe {
 
   .match-history > div > span, .article-group > div > a {
     font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  iframe {
+    width: 800px;
+    min-height: 450px;
   }
 }
 
