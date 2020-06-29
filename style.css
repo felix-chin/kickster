@@ -45,7 +45,7 @@ html, body {
   transform: scale(1.15);
 }
 
-.team-logo > img {
+.team-logo img {
   width: 95%;
   cursor: pointer;
 }
@@ -125,7 +125,7 @@ html, body {
   padding: 0 3%;
 }
 
-.article-group > div {
+.article-group div {
   font-size: 14px;
   font-weight: bold;
   padding: 1% 0;
@@ -169,7 +169,7 @@ html, body {
   100% { transform: rotate(360deg); }
 }
 
-.loader > img {
+.loader img {
   width: 140px;
 }
 
@@ -265,7 +265,17 @@ iframe {
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px){
-  .team-logo > img {
+  .article-group div {
+    font-size: 12px;
+  }
+
+  #map {
+    min-height: 23vh;
+  }
+}
+
+@media only screen and (width: 667px) and (height: 375px) {
+  .team-logo img {
     width: 63%;
   }
 
@@ -312,7 +322,7 @@ iframe {
     width: 60%;
   }
 
-  header > h6 {
+  header h6 {
     font-size: 24px;
   }
 
@@ -329,8 +339,12 @@ iframe {
     font-size: 48px;
   }
 
-  .choose-team-heading > span {
+  .choose-team-heading span {
     font-size: 24px;
+  }
+
+  .match-history div span {
+    margin-bottom: 2%;
   }
 
 }
@@ -340,7 +354,7 @@ iframe {
     margin-bottom: 4%;
   }
 
-  .team-logo > img {
+  .team-logo img {
     width: 100%;
   }
 
@@ -362,15 +376,11 @@ iframe {
     height: 32vh;
   }
 
-  .match-history > h6, .article > h6 {
+  .match-history h6, .article h6 {
     font-size: 24px;
   }
 
-  .match-history > div > span {
-    margin-bottom: 2%;
-  }
-
-  .match-history > div > span, .article-group > div > a {
+  .match-history div, .match-history div span, .article-group div a {
     font-size: 20px;
   }
 }
@@ -380,7 +390,7 @@ iframe {
     margin: 3% 0;
   }
 
-  .team-logo > img {
+  .team-logo img {
     width: 80%;
   }
 
@@ -411,16 +421,16 @@ iframe {
     min-height: 35vh;
   }
 
-  .match-history > h6, .article > h6 {
+  .match-history h6, .article h6 {
     font-size: 24px;
   }
 
-  .match-history > div > span {
-    margin-bottom: 2%;
+  .match-history div, .match-history div span, .article-group div a {
+    font-size: 20px;
   }
 
-  .match-history > div > span, .article-group > div > a {
-    font-size: 20px;
+  .match-history div span {
+    line-height: 28px;
   }
 }
 
@@ -432,12 +442,30 @@ iframe {
 }
 
 @media only screen and (min-width: 1200px) {
-  .team-logo > img {
+  .team-logo img {
     width: 140%;
     margin: 5% 0;
   }
 
-  .choose-team-heading > span {
+  .choose-team-heading span {
     font-size: 36px;
   }
+
+  .logo-wrapper {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .match-history h6, .article h6 {
+    font-size: 48px;
+  }
+
+  .match-history div, .match-history div span, .article-group div a {
+    font-size: 28px;
+  }
+
+  .match-history div span {
+    line-height: 38px;
+  }
+
 }

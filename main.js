@@ -1,6 +1,7 @@
 let teamSelected = null;
 let teams = [];
 let matches = [];
+let match = [];
 let matchReport = null;
 let match1HomeTeam = '';
 let match1AwayTeam = '';
@@ -51,7 +52,6 @@ const highlights = document.querySelector('.highlights');
 const closeButton = document.querySelector('.close-button');
 const iframe = document.querySelector('iframe');
 
-
 getTeams();
 
 teamLogos.addEventListener('click', onLogoClick);
@@ -59,7 +59,7 @@ homeButton.addEventListener('click', reset);
 matchHistory.addEventListener('click', playHighlights);
 closeButton.addEventListener('click', function () {
   highlights.classList.add('d-none');
-  iframe.src = '';
+  iframe.src = 'about:blank';
 })
 
 function onLogoClick(event) {
@@ -258,22 +258,40 @@ function handleGetMatchesSuccess(data) {
   populateMatchHistory();
   getNewsArticle();
   initMap();
+  getMatch();
 }
 
 function getMatches() {
   $.ajax({
     method: "GET",
-    url: "http://api.football-data.org/v2/teams/" + teams[teamSelected].id + "/matches/",
+    url: "http://api.football-data.org/v2/teams/" + teams[teamSelected].id + "/matches",
     headers: {
       "X-Auth-Token":"2e33b10247bd4841be2fec54f309863c"
     },
     data: {
-      "dateFrom":"2019-08-06",
-      "dateTo": currentDate,
-      "competitions":"2021"
+      "competitions":"2021",
+      "status": "FINISHED"
     },
     error: handleGetError,
     success: handleGetMatchesSuccess
+  })
+}
+
+function handleGetMatchSuccess(data) {
+  match = data;
+}
+
+function getMatch() {
+  $.ajax({
+    method: "GET",
+    url: "http://api.football-data.org/v2/matches/264644",
+    headers: {
+      "X-Auth-Token": "2e33b10247bd4841be2fec54f309863c"
+    },
+    data: {
+    },
+    error: handleGetError,
+    success: handleGetMatchSuccess
   })
 }
 
