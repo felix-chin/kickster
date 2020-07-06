@@ -5,10 +5,6 @@ html, body {
   padding: 0;
 }
 
-.container-fluid {
-  height: 97vh;
-}
-
 .heading {
   height: 19vh;
   color: white;
@@ -93,7 +89,7 @@ html, body {
 }
 
 .match-history {
-  min-height: 23vh;
+  flex-grow: 0;
   width: 100%;
 }
 
@@ -119,6 +115,7 @@ html, body {
 }
 
 .article {
+  flex-grow: 0;
   width: 100%;
   background-color: #BBCBCB;
   font-size: 14px;
@@ -142,8 +139,13 @@ html, body {
   background-color: rgba(176, 196, 222, 0.85);
 }
 
+.team-details {
+  display: flex;
+  min-height: 81vh;
+}
+
 #map {
-  min-height: 19vh;
+  flex-grow: 1;
   width: 100%;
 }
 
@@ -268,10 +270,6 @@ iframe {
   .article-group div {
     font-size: 12px;
   }
-
-  #map {
-    min-height: 23vh;
-  }
 }
 
 @media only screen and (width: 667px) and (height: 375px) {
@@ -305,9 +303,6 @@ iframe {
     height: 3.5rem;
   }
 
-  #map {
-    min-height: 23vh;
-  }
 }
 
 @media only screen and (min-width: 667px) {
@@ -368,14 +363,6 @@ iframe {
     font-size: 18px;
   }
 
-  #map {
-    min-height: 26vh;
-  }
-
-  .article {
-    height: 32vh;
-  }
-
   .match-history h6, .article h6 {
     font-size: 24px;
   }
@@ -417,10 +404,6 @@ iframe {
     font-size: 20px;
   }
 
-  #map {
-    min-height: 35vh;
-  }
-
   .match-history h6, .article h6 {
     font-size: 24px;
   }
@@ -457,7 +440,7 @@ iframe {
   }
 
   .match-history h6, .article h6 {
-    font-size: 48px;
+    font-size: 32px;
   }
 
   .match-history div, .match-history div span, .article-group div a {
@@ -468,4 +451,8 @@ iframe {
     line-height: 38px;
   }
 
+  .stadium-location {
+    bottom: 8%;
+    font-size: 24px;
+  }
 }
