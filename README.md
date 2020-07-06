@@ -13,12 +13,12 @@ Current feature list:
 6. User can go back to home screen and select a new team.
 7. App is mobile-responsive for iPhone 6/7/8 and iPad, in both portrait and landscape modes.
 
-Planned Additions:
+Planned additions:
 1. Integrate match reports and match results so that they flow together.
 2. User can click into a match result to view additional details such as line-ups, match stats, etc.
 3. Team pages will have a section that lists the full team roster.
 4. User can click a player on the team roster and see individual player stats.
 
-What I Learned:
+What I learned:
 
 My biggest take away from this project was finally becoming comfortable with using media queries and Bootstrap 4 to create a mobile responsive website. I also learned to build for mobile first and then layer on code from there to make the app compatible for higher resolution devices.
