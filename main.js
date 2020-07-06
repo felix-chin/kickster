@@ -239,7 +239,7 @@ function handleGetTeamsSuccess(data) {
 function getTeams() {
   $.ajax({
     method: "GET",
-    url: "http://api.football-data.org/v2/competitions/2021/teams",
+    url: "https://api.football-data.org/v2/competitions/2021/teams",
     headers: {
       "X-Auth-Token":"2e33b10247bd4841be2fec54f309863c"
     },
@@ -264,7 +264,7 @@ function handleGetMatchesSuccess(data) {
 function getMatches() {
   $.ajax({
     method: "GET",
-    url: "http://api.football-data.org/v2/teams/" + teams[teamSelected].id + "/matches",
+    url: "https://api.football-data.org/v2/teams/" + teams[teamSelected].id + "/matches",
     headers: {
       "X-Auth-Token":"2e33b10247bd4841be2fec54f309863c"
     },
@@ -284,7 +284,7 @@ function handleGetMatchSuccess(data) {
 function getMatch() {
   $.ajax({
     method: "GET",
-    url: "http://api.football-data.org/v2/matches/264644",
+    url: "https://api.football-data.org/v2/matches/264644",
     headers: {
       "X-Auth-Token": "2e33b10247bd4841be2fec54f309863c"
     },
