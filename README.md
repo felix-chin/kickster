@@ -1,4 +1,4 @@
-# api-hackathon
+# epl-match-tracker
 Current feature list:
 1. User can select an EPL team.
 2. User can view last 4 match results for a team.
