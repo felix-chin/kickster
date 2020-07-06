@@ -1,4 +1,9 @@
 # epl-match-tracker
+
+Live demo:
+
+https://felix-chin.github.io/epl-match-tracker/
+
 Current feature list:
 1. User can select an EPL team.
 2. User can view last 4 match results for a team.
@@ -15,4 +20,5 @@ Planned Additions:
 4. User can click a player on the team roster and see individual player stats.
 
 What I Learned:
+
 My biggest take away from this project was finally becoming comfortable with using media queries and Bootstrap 4 to create a mobile responsive website. I also learned to build for mobile first and then layer on code from there to make the app compatible for higher resolution devices.
