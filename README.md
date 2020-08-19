@@ -8,9 +8,13 @@ Try the application live at https://kickster.felixchin.com/
 
 Best viewed in iPhone 6/7/8 or iPad.
 
-## Preview:
+## Technologies Used
 
-![kickster](./kickster.gif )
+- JavaScript
+- Bootstrap 4
+- HTML5
+- CSS3
+- AWS EC2
 
 ## Current Feature List
 
@@ -21,6 +25,10 @@ Best viewed in iPhone 6/7/8 or iPad.
 5. User can see stadium location on google maps.
 6. User can go back to home screen and select a new team.
 7. App is mobile-responsive for iPhone 6/7/8 and iPad, in both portrait and landscape modes.
+
+## Preview:
+
+![kickster](./kickster.gif )
 
 ## Planned Additions
 
