@@ -1,6 +1,6 @@
 # kickster
 
-A mobile-responsive application for football enthusiasts who want to view the latest English Premier League match results and highlights. This application utilizes APIs from football-data.org, The Guardian, and Google Maps.
+A mobile-responsive application for football enthusiasts who want to view the latest English Premier League match results and highlights. This application utilizes APIs from [football-data.org](https://www.football-data.org/), [The Guardian](https://open-platform.theguardian.com/), and [Google Maps](https://developers.google.com/maps/documentation).
 
 ## Live demo:
 
