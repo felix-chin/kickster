@@ -1,4 +1,4 @@
-# kickerster
+# kickster
 
 A application for football enthusiasts who want to view the latest English Premier League match results and highlights.
 
