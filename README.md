@@ -1,10 +1,8 @@
-# api-hackathon
+# kickster
 
-A hackathon project utlizing the data from two public APIs to create an application for football enthusiasts who want to view the latest English Premier League match results and highlights.
+A mobile-responsive application for football enthusiasts who want to view the latest English Premier League match results and highlights. This application utilizes APIs from football-data.org, The Guardian, and Google Maps.
 
 ## Live demo:
-
-https://felix-chin.github.io/epl-match-tracker/
 
 ## Current Feature List
 
