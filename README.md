@@ -4,6 +4,12 @@ A mobile-responsive application for football enthusiasts who want to view the la
 
 ## Live demo:
 
+Try the application live at https://kickster.felixchin.com/
+
+## Preview:
+
+![kickster](./kickster.gif )
+
 ## Current Feature List
 
 1. User can select an EPL team.
