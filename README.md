@@ -12,7 +12,7 @@ Try the application live at https://kickster.felixchin.com/
 
 ## Current Feature List
 
-1. User can select an EPL team.
+1. User can select a Premier League team.
 2. User can view last 4 match results for a team.
 3. User can view match reports for last 4 matches.
 4. User can view highlight videos for last 4 matches.
