@@ -89,7 +89,6 @@ html, body {
 }
 
 .match-history {
-  flex-grow: 0;
   width: 100%;
 }
 
@@ -115,7 +114,6 @@ html, body {
 }
 
 .article {
-  flex-grow: 0;
   width: 100%;
   background-color: #BBCBCB;
   font-size: 14px;
@@ -145,7 +143,7 @@ html, body {
 }
 
 #map {
-  flex-grow: 1;
+  min-height: 19vh;
   width: 100%;
 }
 
@@ -266,9 +264,19 @@ iframe {
   }
 }
 
+@media only screen and (width: 375px) and (height: 667px){
+   .epl-logo {
+    margin-bottom: 2%;
+  }
+}
+
 @media only screen and (min-width: 576px) and (max-width: 767px){
   .article-group div {
     font-size: 12px;
+  }
+
+   .epl-logo {
+    width: 40%;
   }
 }
 
@@ -279,6 +287,10 @@ iframe {
 
   .epl-logo {
     width: 29%;
+  }
+
+  .title {
+    margin-left: 10%;
   }
 
   .choose-team-heading {
@@ -314,11 +326,12 @@ iframe {
 
 @media only screen and (min-width: 768px) {
   .epl-logo {
-    width: 60%;
+    width: 30%;
   }
 
-  header h6 {
-    font-size: 24px;
+  .title {
+    margin-top: 2%;
+    font-size: 38px;
   }
 
   .team-name {
@@ -347,6 +360,16 @@ iframe {
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .team-logo {
     margin-bottom: 4%;
+  }
+
+  .epl-logo {
+    width: 30%;
+    margin-bottom: 1%;
+  }
+
+  .title {
+    margin: 0 auto;
+    font-size: 36px;
   }
 
   .team-logo img {
@@ -382,7 +405,14 @@ iframe {
   }
 
   .epl-logo {
-    width: 30%;
+    width: 20%;
+    margin-left: 18%;
+  }
+
+  .title {
+    margin-left: 4%;
+    margin-bottom: 2%;
+    font-size: 36px;
   }
 
   .choose-team-heading {
@@ -428,6 +458,15 @@ iframe {
   .team-logo img {
     width: 140%;
     margin: 5% 0;
+  }
+
+  .epl-logo {
+    width: 20%;
+  }
+
+  .title {
+    font-size: 46px;
+    margin: 0 auto;
   }
 
   .choose-team-heading span {
