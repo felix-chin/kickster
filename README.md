@@ -1,6 +1,6 @@
 # kickster
 
-A application for football enthusiasts who want to view the latest English Premier League match results and highlights.
+A hackathon project utlizing the data from two public APIs to create an application for football enthusiasts who want to view the latest English Premier League match results and highlights.
 
 ## Live demo:
 
