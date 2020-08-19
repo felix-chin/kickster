@@ -29,4 +29,4 @@ Try the application live at https://kickster.felixchin.com/
 
 ## What I Learned
 
-My biggest take away from this project was finally becoming comfortable with using media queries and Bootstrap 4 to create a mobile responsive website, designing with a mobile first approach.
+My biggest take away from this project was finally becoming comfortable with using media queries and Bootstrap 4 to create a mobile responsive website. I built this project for mobile first and then scaled the application to work with higher resolutions.
