@@ -23,6 +23,7 @@ let highlightsArray = [];
 let matchVideo = null;
 const date = new Date();
 const currentDate = new Date(date.getTime() - (12*60*60*1000) - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+const homeWrapper = document.querySelector('.home-wrapper');
 const chooseTeamHeading = document.querySelector('.choose-team-heading');
 const teamLogos = document.querySelector('.team-logos-wrapper');
 const homeHeader = document.querySelector('.home-header');
@@ -66,10 +67,10 @@ start();
 function start() {
   getTeams();
   getAllMatches();
-  loadingScreen();
 }
 
 function onLogoClick(event) {
+  loader.classList.remove('d-none');
   const element = event.target;
   if(!element.hasAttribute('data-team')) {
     return;
@@ -78,11 +79,6 @@ function onLogoClick(event) {
   matches = allMatches.filter(
     match => match['awayTeam'].id === teams[teamSelected].id || match['homeTeam'].id === teams[teamSelected].id
   )
-  chooseTeamHeading.classList.remove('delay');
-  teamLogos.classList.remove('delay');
-  loadingScreen();
-  populateTeam();
-  populateMatchHistory();
   getNewsArticle();
   initMap();
 }
@@ -105,26 +101,17 @@ function playHighlights(event) {
   }
 }
 
-function loadingScreen() {
-  loader.classList.remove('d-none');
-  setTimeout(function() {
-    loader.classList.add('d-none');
-  }, 1000)
-}
-
 function populateTeam() {
   homeHeader.classList.add('d-none');
   homePage.classList.add('d-none');
-  setTimeout(function() {
-    teamDetails.classList.remove('d-none');
-    detailsHeader.classList.remove('d-none');
-    team.textContent = teams[teamSelected].name;
-    stadium.textContent = teams[teamSelected].venue;
-    stadiumLocation.textContent = teams[teamSelected].venue;
-    website.textContent = teams[teamSelected].website;
-    website.setAttribute('href', teams[teamSelected].website);
-    detailsTeamLogo.classList.add(teams[teamSelected].tla);
-  }, 1000);
+  team.textContent = teams[teamSelected].name;
+  stadium.textContent = teams[teamSelected].venue;
+  stadiumLocation.textContent = teams[teamSelected].venue;
+  website.textContent = teams[teamSelected].website;
+  website.setAttribute('href', teams[teamSelected].website);
+  detailsTeamLogo.classList.add(teams[teamSelected].tla);
+  teamDetails.classList.remove('d-none');
+  detailsHeader.classList.remove('d-none');
 }
 
 function reset() {
@@ -269,6 +256,9 @@ function getTeams() {
 
 function handleGetAllMatchesSuccess(data) {
   allMatches = data.matches;
+  loader.classList.add('d-none');
+  chooseTeamHeading.classList.add('animate-fade-in');
+  teamLogos.classList.add('animate-bottom');
 }
 
 function getAllMatches() {
@@ -304,6 +294,9 @@ function handleGetNewsArticleSuccess (data) {
   article2.setAttribute('href', link2);
   article3.setAttribute('href', link3);
   article4.setAttribute('href', link4);
+  populateTeam();
+  populateMatchHistory();
+  loader.classList.add('d-none');
 }
 
 function getNewsArticle() {
