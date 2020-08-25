@@ -204,6 +204,10 @@ iframe {
   min-height: 180px;
 }
 
+.delay {
+  animation-delay: 1s;
+}
+
 .animate-bottom {
   position: relative;
   animation-name: animatebottom;
