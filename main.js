@@ -252,7 +252,7 @@ function getTeams() {
 }
 
 function handleGetMatchesSuccess(data) {
-  matches = data.matches;
+  matches = data;
   loadingScreen();
   populateTeam();
   populateMatchHistory();
@@ -264,7 +264,7 @@ function handleGetMatchesSuccess(data) {
 function getMatches() {
   $.ajax({
     method: "GET",
-    url: "https://api.football-data.org/v2/teams/" + teams[teamSelected].id + "/matches",
+    url: "https://api.football-data.org/v2/teams/61/matches",
     headers: {
       "X-Auth-Token":"2e33b10247bd4841be2fec54f309863c"
     },

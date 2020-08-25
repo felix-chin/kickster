@@ -173,6 +173,10 @@ html, body {
   width: 140px;
 }
 
+.hover:hover {
+  transform: scale(1.2);
+}
+
 .highlights {
   background-color: rgba(192, 192, 192, 0.8);
   position: fixed;
@@ -185,6 +189,8 @@ html, body {
   justify-content: center;
   align-items: center;
 }
+
+
 
 .close-button {
   font-size: 48px;
