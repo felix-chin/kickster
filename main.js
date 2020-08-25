@@ -1,7 +1,7 @@
 let teamSelected = null;
 let teams = [];
 let matches = [];
-let match = [];
+let allMatches = [];
 let matchReport = null;
 let match1HomeTeam = '';
 let match1AwayTeam = '';
@@ -52,8 +52,6 @@ const highlights = document.querySelector('.highlights');
 const closeButton = document.querySelector('.close-button');
 const iframe = document.querySelector('iframe');
 
-getTeams();
-
 teamLogos.addEventListener('click', onLogoClick);
 homeButton.addEventListener('click', reset);
 matchHistory.addEventListener('click', playHighlights);
@@ -62,13 +60,28 @@ closeButton.addEventListener('click', function () {
   iframe.src = 'about:blank';
 })
 
+start();
+
+function start() {
+  getTeams();
+  getAllMatches();
+  loadingScreen();
+}
+
 function onLogoClick(event) {
   const element = event.target;
   if(!element.hasAttribute('data-team')) {
     return;
   }
   teamSelected = element.getAttribute('data-team');
-  getMatches();
+  matches = allMatches.filter(
+    match => match['awayTeam'].id === teams[teamSelected].id || match['homeTeam'].id === teams[teamSelected].id
+  )
+  loadingScreen();
+  populateTeam();
+  populateMatchHistory();
+  getNewsArticle();
+  initMap();
 }
 
 function playHighlights(event) {
@@ -251,47 +264,22 @@ function getTeams() {
   })
 }
 
-function handleGetMatchesSuccess(data) {
-  matches = data;
-  loadingScreen();
-  populateTeam();
-  populateMatchHistory();
-  getNewsArticle();
-  initMap();
-  getMatch();
+function handleGetAllMatchesSuccess(data) {
+  allMatches = data.matches;
 }
 
-function getMatches() {
+function getAllMatches() {
   $.ajax({
     method: "GET",
-    url: "https://api.football-data.org/v2/teams/61/matches",
+    url: "https://api.football-data.org/v2/competitions/2021/matches",
     headers: {
       "X-Auth-Token":"2e33b10247bd4841be2fec54f309863c"
     },
     data: {
-      "competitions":"2021",
-      "status": "FINISHED"
+      "season": "2019"
     },
     error: handleGetError,
-    success: handleGetMatchesSuccess
-  })
-}
-
-function handleGetMatchSuccess(data) {
-  match = data;
-}
-
-function getMatch() {
-  $.ajax({
-    method: "GET",
-    url: "https://api.football-data.org/v2/matches/264644",
-    headers: {
-      "X-Auth-Token": "2e33b10247bd4841be2fec54f309863c"
-    },
-    data: {
-    },
-    error: handleGetError,
-    success: handleGetMatchSuccess
+    success: handleGetAllMatchesSuccess
   })
 }
 
