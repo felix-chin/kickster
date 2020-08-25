@@ -347,6 +347,11 @@ iframe {
 
   .venue-name, .website {
     font-size: 18px;
+    color: white;
+  }
+
+  .website:hover {
+    color: white;
   }
 
   .home-button {

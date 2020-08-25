@@ -252,7 +252,7 @@ function getTeams() {
 }
 
 function handleGetMatchesSuccess(data) {
-  matches = data;
+  matches = data.matches;
   loadingScreen();
   populateTeam();
   populateMatchHistory();
@@ -264,13 +264,14 @@ function handleGetMatchesSuccess(data) {
 function getMatches() {
   $.ajax({
     method: "GET",
-    url: "https://api.football-data.org/v2/teams/61/matches",
+    url: "https://api.football-data.org/v2/teams/" + teams[teamSelected].id + "/matches",
     headers: {
       "X-Auth-Token":"2e33b10247bd4841be2fec54f309863c"
     },
     data: {
       "competitions":"2021",
-      "status": "FINISHED"
+      // "status": "FINISHED",
+      // "season": "2019"
     },
     error: handleGetError,
     success: handleGetMatchesSuccess
