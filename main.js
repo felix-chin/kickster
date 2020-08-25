@@ -23,6 +23,7 @@ let highlightsArray = [];
 let matchVideo = null;
 const date = new Date();
 const currentDate = new Date(date.getTime() - (12*60*60*1000) - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+const chooseTeamHeading = document.querySelector('.choose-team-heading');
 const teamLogos = document.querySelector('.team-logos-wrapper');
 const homeHeader = document.querySelector('.home-header');
 const homePage = document.querySelector('.home');
@@ -77,6 +78,8 @@ function onLogoClick(event) {
   matches = allMatches.filter(
     match => match['awayTeam'].id === teams[teamSelected].id || match['homeTeam'].id === teams[teamSelected].id
   )
+  chooseTeamHeading.classList.remove('delay');
+  teamLogos.classList.remove('delay');
   loadingScreen();
   populateTeam();
   populateMatchHistory();
