@@ -23,7 +23,6 @@ let highlightsArray = [];
 let matchVideo = null;
 const date = new Date();
 const currentDate = new Date(date.getTime() - (12*60*60*1000) - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
-const homeWrapper = document.querySelector('.home-wrapper');
 const chooseTeamHeading = document.querySelector('.choose-team-heading');
 const teamLogos = document.querySelector('.team-logos-wrapper');
 const homeHeader = document.querySelector('.home-header');
