@@ -6,7 +6,7 @@ html, body {
 }
 
 .heading {
-  height: 19vh;
+  min-height: 19vh;
   color: white;
   background-color: #9D175F;
 }
@@ -16,16 +16,22 @@ html, body {
 }
 
 .epl-logo {
-  width: 45%;
+  width: 6%;
 }
 
-.home-wrapper {
-  width: 100%;
+.title {
+  font-family: 'Passion One';
+  font-size: 48px;
+}
+
+.passion-one-font {
+  font-family: 'Passion One';
 }
 
 .choose-team-heading {
   font-family: 'Alfa Slab One';
-  margin: 4% 0;
+  font-size: 24px;
+  margin: 2% 0;
 }
 
 .team-logo {
@@ -72,12 +78,11 @@ html, body {
 }
 
 .team-name {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 24px;
 }
 
 .venue-name, .website {
-  font-size: 14px;
+  color: white;
 }
 
 .team-details {
@@ -131,10 +136,8 @@ html, body {
   bottom: 7%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 14px;
-  font-weight: bold;
   text-align: center;
-  background-color: rgba(176, 196, 222, 0.85);
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .team-details {
@@ -190,7 +193,9 @@ html, body {
   align-items: center;
 }
 
-
+.website:hover {
+  color: white;
+}
 
 .close-button {
   font-size: 48px;
@@ -274,191 +279,10 @@ iframe {
   }
 }
 
-@media only screen and (width: 375px) and (height: 667px){
-   .epl-logo {
-    margin-bottom: 2%;
-  }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px){
-  .article-group div {
-    font-size: 12px;
-  }
-
-   .epl-logo {
-    width: 40%;
-  }
-}
-
-@media only screen and (width: 667px) and (height: 375px) {
-  .team-logo img {
-    width: 63%;
-  }
-
-  .epl-logo {
-    width: 29%;
-  }
-
-  .title {
-    margin-left: 10%;
-  }
-
-  .choose-team-heading {
-    color: white;
-    font-size: 14px;
-    margin: 1% 0;
-    position: fixed;
-    top: 11%;
-    left: 42%;
-  }
-
-  header {
-    width: 58%;
-  }
-
-  .article-group div {
-    font-size: 12px;
-  }
-
-  .logo-wrapper {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-
-}
-
 @media only screen and (min-width: 667px) {
   iframe {
     width: 560px;
     height: 315px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .epl-logo {
-    width: 30%;
-  }
-
-  .title {
-    margin-top: 2%;
-    font-size: 38px;
-  }
-
-  .team-name {
-    font-size: 32px;
-    font-weight: bold;
-  }
-
-  .venue-name, .website {
-    font-size: 18px;
-    color: white;
-  }
-
-  .website:hover {
-    color: white;
-  }
-
-  .home-button {
-    font-size: 48px;
-  }
-
-  .choose-team-heading span {
-    font-size: 24px;
-  }
-
-  .match-history div span {
-    margin-bottom: 2%;
-  }
-
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .team-logo {
-    margin-bottom: 4%;
-  }
-
-  .epl-logo {
-    width: 30%;
-    margin-bottom: 1%;
-  }
-
-  .title {
-    margin: 0 auto;
-    font-size: 36px;
-  }
-
-  .team-logo img {
-    width: 100%;
-  }
-
-  .logo-wrapper {
-    width: 9rem;
-    height: 9rem;
-  }
-
-  .stadium-location {
-    bottom: 13%;
-    font-size: 18px;
-  }
-
-  .match-history h6, .article h6 {
-    font-size: 24px;
-  }
-
-  .match-history div, .match-history div span, .article-group div a {
-    font-size: 20px;
-  }
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .team-logos-wrapper {
-    margin: 3% 0;
-  }
-
-  .team-logo img {
-    width: 80%;
-  }
-
-  .epl-logo {
-    width: 20%;
-    margin-left: 18%;
-  }
-
-  .title {
-    margin-left: 4%;
-    margin-bottom: 2%;
-    font-size: 36px;
-  }
-
-  .choose-team-heading {
-    color: white;
-    font-size: 14px;
-    margin: 1% 0;
-    position: fixed;
-    top: 11%;
-    left: 40%;
-  }
-
-  .logo-wrapper {
-    width: 7.5rem;
-    height: 7.5rem;
-  }
-
-  .stadium-location {
-    bottom: 15%;
-    font-size: 20px;
-  }
-
-  .match-history h6, .article h6 {
-    font-size: 24px;
-  }
-
-  .match-history div, .match-history div span, .article-group div a {
-    font-size: 20px;
-  }
-
-  .match-history div span {
-    line-height: 28px;
   }
 }
 
@@ -475,22 +299,9 @@ iframe {
     margin: 5% 0;
   }
 
-  .epl-logo {
-    width: 20%;
-  }
-
-  .title {
-    font-size: 46px;
-    margin: 0 auto;
-  }
-
-  .choose-team-heading span {
-    font-size: 36px;
-  }
-
   .logo-wrapper {
-    width: 10rem;
-    height: 10rem;
+    width: 9rem;
+    height: 9rem;
   }
 
   .match-history h6, .article h6 {
