@@ -6,7 +6,7 @@ A mobile-responsive application for football enthusiasts who want to view the la
 
 Try the application live at https://kickster.felixchin.com/
 
-Best viewed in iPhone 6/7/8 or iPad.
+Best viewed on iPhone 6/7/8.
 
 ## Technologies Used
 
