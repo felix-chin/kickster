@@ -3,32 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css">
-  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Passion+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="logos.css">
   <title>Kickster</title>
 </head>
 <body>
-  <div class="loading-modal">
+  <section class="loading-modal">
     <div class="loader d-flex justify-content-center align-items-center">
       <img src="images/soccerball.png" alt="soccer-loader">
     </div>
-  </div>
-  <div class="highlights d-none">
+  </section>
+  <section class="highlights d-none">
     <i class="hover close-button fas fa-times"></i>
     <iframe src="about:blank" frameborder="0"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
-  <div class="container-fluid">
-    <div class="row heading">
+  </section>
+  <main class="container-fluid">
+    <header class="row heading">
       <div class="home-header animate-left">
-        <div class="d-flex align-items-center justify-content-center h-100">
-          <header class="d-flex flex-column flex-sm-row flex-md-column flex-lg-row flex-xl-column align-items-center justify-content-center justify-content-sm-start justify-content-md-center justify-content-lg-start justify-content-xl-center">
-            <img class="epl-logo" src="images/premier-league-header.png" alt="epl-logo">
-            <h4 class="font-weight-bold font-italic title">Kickster</h4>
-          </header>
+        <div class="d-flex flex-column justify-content-center align-items-center h-100 py-2">
+          <h1 class="font-italic m-0 title">Kickster</h1>
+          <div class="d-flex justify-content-center align-items-center">
+            <img class="mr-2 epl-logo" src="images/epl-logo.svg" alt="epl-logo">
+            <h6 class="m-0">Premier League Match Highlights</h6>
+          </div>
         </div>
       </div>
       <div class="details-header d-none animate-right">
@@ -37,7 +39,7 @@
             <div class="details-team-logo"></div>
           </div>
           <div class="team-text-wrapper d-flex flex-column justify-content-center">
-            <span class="team-name"></span>
+            <span class="team-name passion-one-font font-italic m-0"></span>
             <span class="venue-name"></span>
             <span><a class="website" href="" target="_blank"></a></span>
           </div>
@@ -46,11 +48,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </header>
     <div class="row home">
       <div class="col-12 home-wrapper d-flex flex-column">
         <div class="choose-team-heading d-flex align-items-center justify-content-center">
-          <span>Choose a team</span>
+          <span>Choose a club</span>
         </div>
         <div class="team-logos-wrapper">
           <div class="row d-flex">
@@ -128,14 +130,14 @@
     </div>
     <div class="row team-details d-none animate-bottom">
       <div class="col-sm-6 col-md-12 col-lg-5 match-history d-flex flex-column justify-content-center align-items-center">
-        <h6>Last 4 Match Results</h6>
+        <h6 class="font-italic passion-one-font">Match Results</h6>
         <div><span class="match1Home"></span> - <span class="match1Away"></span><i data-video="1" class="hover highlights1 fas fa-play-circle"></i></div>
         <div><span class="match2Home"></span> - <span class="match2Away"></span><i data-video="2" class="hover highlights2 fas fa-play-circle"></i></div>
         <div><span class="match3Home"></span> - <span class="match3Away"></span><i data-video="3" class="hover highlights3 fas fa-play-circle"></i></div>
         <div><span class="match4Home"></span> - <span class="match4Away"></span><i data-video="4" class="hover highlights4 fas fa-play-circle"></i></div>
       </div>
       <div class="col-sm-6 col-md-12 col-lg-7 article d-flex flex-column justify-content-center align-items-center px-3">
-        <h6>Latest Match Reports</h6>
+        <h6 class="font-italic passion-one-font">Latest Match Reports</h6>
         <div class="article-group">
           <div><a class="article1" target="_blank"></a></div>
           <div><a class="article2" target="_blank"></a></div>
@@ -144,9 +146,9 @@
         </div>
       </div>
       <div id="map"></div>
-      <div class="stadium-location"></div>
+      <h6 class="font-italic passion-one-font stadium-location">Stadium Location</h6>
     </div>
-  </div>
+  </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC37G_TaabnjhwNuCove5iXzL_qQmS7X7E"></script>
   <script src="main.js"></script>
