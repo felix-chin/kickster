@@ -291,6 +291,33 @@ iframe {
     width: 800px;
     min-height: 450px;
   }
+
+  .home-button {
+    font-size: 48px;
+  }
+
+  .logo-wrapper {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .match-history h6, .article h6 {
+    font-size: 32px;
+  }
+
+  .match-history div, .match-history div span, .article-group div a {
+    font-size: 20px;
+  }
+
+  .match-history div span {
+    line-height: 28px;
+    padding-bottom: 1.3rem;
+  }
+
+  .stadium-location {
+    bottom: 8%;
+    font-size: 24px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
