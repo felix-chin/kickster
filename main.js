@@ -45,11 +45,13 @@ const article1 = document.querySelector('.article1');
 const article2 = document.querySelector('.article2');
 const article3 = document.querySelector('.article3');
 const article4 = document.querySelector('.article4');
-const loader = document.querySelector('.loading-modal');
+const loader = document.querySelector('.loading-screen');
 const matchHistory = document.querySelector('.match-history');
 const highlights = document.querySelector('.highlights');
 const closeButton = document.querySelector('.close-button');
 const iframe = document.querySelector('iframe');
+const tryAgainModal = document.querySelector('.try-again');
+const tryAgainButton = document.querySelector('.try-again-btn');
 
 teamLogos.addEventListener('click', onLogoClick);
 homeButton.addEventListener('click', reset);
@@ -57,6 +59,11 @@ matchHistory.addEventListener('click', playHighlights);
 closeButton.addEventListener('click', function () {
   highlights.classList.add('d-none');
   iframe.src = 'about:blank';
+})
+tryAgainButton.addEventListener('click', () => {
+  start();
+  tryAgainModal.classList.add('d-none');
+  loader.classList.remove('d-none');
 })
 
 start();
@@ -229,6 +236,8 @@ function populateMatchHistory() {
 
 function handleGetError(error) {
   console.error(error);
+  tryAgainModal.classList.remove('d-none');
+  loader.classList.add('d-none');
 }
 
 function handleGetTeamsSuccess(data) {

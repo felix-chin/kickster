@@ -12,9 +12,15 @@
   <title>Kickster</title>
 </head>
 <body>
-  <section class="loading-modal">
+  <section class="modal-bg loading-screen">
     <div class="loader d-flex justify-content-center align-items-center">
       <img src="images/soccerball.png" alt="soccer-loader">
+    </div>
+  </section>
+  <section class="modal-bg try-again d-none">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <h2>Could not contact server, please try again later.</h2>
+      <button type="button" class="try-again-btn btn btn-primary mt-3">Try again</button>
     </div>
   </section>
   <section class="highlights d-none">

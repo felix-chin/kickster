@@ -150,7 +150,7 @@ html, body {
   width: 100%;
 }
 
-.loading-modal {
+.modal-bg {
   background-color: white;
   position: fixed;
   z-index: 1;
