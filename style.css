@@ -35,8 +35,8 @@ html, body {
 }
 
 .team-logo {
-  padding: 1%;
-  transition: transform 200ms;
+  padding: .2rem .1rem;
+  transition: all 200ms ease-in;
 }
 
 .team-logo:active {
@@ -48,10 +48,8 @@ html, body {
 }
 
 .team-logo img {
-  width: 100%;
   max-width: 100%;
   height: auto;
-  object-fit: cover;
   cursor: pointer;
 }
 
