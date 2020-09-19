@@ -81,6 +81,7 @@ html, body {
 
 .team-name {
   font-size: 24px;
+  line-height: 1;
 }
 
 .venue-name, .website {
@@ -199,7 +200,7 @@ html, body {
   position: fixed;
   z-index: 1;
   width: 100vw;
-  height: 81vh;
+  height: 100vh;
   bottom: 0;
   left: 0;
   display: flex;
@@ -214,17 +215,13 @@ html, body {
 .close-button {
   font-size: 48px;
   position: fixed;
-  top: 23%;
+  top: 2%;
   right: 2%;
 }
 
 iframe {
   width: 320px;
   min-height: 180px;
-}
-
-.delay {
-  animation-delay: 1s;
 }
 
 .animate-bottom {
@@ -273,7 +270,7 @@ iframe {
 
 @keyframes animateleft {
   from {
-    left:-500px;
+    left:-200px;
     opacity:0
   }
   to {
@@ -284,7 +281,7 @@ iframe {
 
 @keyframes animateright {
   from {
-    right:-500px;
+    right:-200px;
     opacity:0
   }
   to {
