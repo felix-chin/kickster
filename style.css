@@ -35,7 +35,7 @@ html, body {
 }
 
 .team-logo {
-  /* padding: .2rem .1rem; */
+  padding: .2rem .1rem;
   transition: all 200ms ease-in;
 }
 
@@ -48,7 +48,7 @@ html, body {
 }
 
 .team-logo img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   cursor: pointer;
 }
