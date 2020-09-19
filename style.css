@@ -35,7 +35,7 @@ html, body {
 }
 
 .team-logo {
-  padding: .2rem .1rem;
+  /* padding: .2rem .1rem; */
   transition: all 200ms ease-in;
 }
 
