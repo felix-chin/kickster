@@ -96,7 +96,7 @@ html, body {
   font-size: 24px;
 }
 
-.match-history {
+.match-results {
   width: 100%;
   color: white;
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/images/match-results.jpg');
@@ -105,23 +105,23 @@ html, body {
   background-repeat: no-repeat;
 }
 
-.match-history div {
+.match-results div {
   display: flex;
   width: 100%;
 }
 
-.match-history div span {
+.match-results div span {
   flex: 1;
   font-size: 14px;
   line-height: 24px;
 }
 
-.match-history div span:first-of-type {
+.match-results div span:first-of-type {
   text-align: right;
   padding-right: 5px;
 }
 
-.match-history div span:last-of-type {
+.match-results div span:last-of-type {
   text-align: left;
   padding-left: 5px;
 }
@@ -317,15 +317,15 @@ iframe {
     height: 8rem;
   }
 
-  .match-history h6, .article h6 {
+  .match-results h6, .article h6 {
     font-size: 32px;
   }
 
-  .match-history div, .match-history div span, .article-group div a {
+  .match-results div, .match-results div span, .article-group div a {
     font-size: 20px;
   }
 
-  .match-history div span {
+  .match-results div span {
     line-height: 28px;
     padding-bottom: 1.3rem;
   }
@@ -354,15 +354,15 @@ iframe {
     font-size: 48px;
   }
 
-  .match-history h5, .article h5 {
+  .match-results h5, .article h5 {
     font-size: 36px;
   }
 
-  .match-history div, .match-history div span, .article-group div a {
+  .match-results div, .match-results div span, .article-group div a {
     font-size: 28px;
   }
 
-  .match-history div span {
+  .match-results div span {
     line-height: 38px;
   }
 

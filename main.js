@@ -2,7 +2,7 @@ let teamSelected = null;
 let teams = [];
 let matches = [];
 let allMatches = [];
-let matchReport = null;
+let matchReports= [];
 let match1HomeTeam = '';
 let match1AwayTeam = '';
 let match2HomeTeam = '';
@@ -19,6 +19,10 @@ let match3HomeScore = null;
 let match3AwayScore = null;
 let match4HomeScore = null;
 let match4AwayScore = null;
+let match1Date = null;
+let match2Date = null;
+let match3Date = null;
+let match4Date = null;
 let matchVideo = null;
 const date = new Date();
 const currentDate = new Date(date.getTime() - (12*60*60*1000) - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
@@ -46,7 +50,7 @@ const article2 = document.querySelector('.article2');
 const article3 = document.querySelector('.article3');
 const article4 = document.querySelector('.article4');
 const loader = document.querySelector('.loading-screen');
-const matchHistory = document.querySelector('.match-history');
+const matchResults = document.querySelector('.match-results');
 const highlights = document.querySelector('.highlights');
 const closeButton = document.querySelector('.close-button');
 const iframe = document.querySelector('iframe');
@@ -55,7 +59,7 @@ const tryAgainButton = document.querySelector('.try-again-btn');
 
 teamLogos.addEventListener('click', onLogoClick);
 homeButton.addEventListener('click', reset);
-matchHistory.addEventListener('click', playHighlights);
+matchResults.addEventListener('click', getHighlights);
 closeButton.addEventListener('click', function () {
   highlights.classList.add('d-none');
   iframe.src = 'about:blank';
@@ -83,11 +87,12 @@ function onLogoClick(event) {
   matches = allMatches.filter(
     match => match['awayTeam'].id === teams[teamSelected].id || match['homeTeam'].id === teams[teamSelected].id
   )
-  getNewsArticle();
+  displayClubHeader();
+  getMatchResults();
   initMap();
 }
 
-function playHighlights(event) {
+function getHighlights(event) {
   const element = event.target;
   if (!element.hasAttribute('data-video')) {
     return;
@@ -105,7 +110,7 @@ function playHighlights(event) {
   }
 }
 
-function populateTeam() {
+function displayClubHeader() {
   homeHeader.classList.add('d-none');
   homePage.classList.add('d-none');
   team.textContent = teams[teamSelected].name;
@@ -139,9 +144,10 @@ function reset() {
   match4Home.style.fontWeight = '';
   match4Away.style.color = '';
   match4Away.style.fontWeight = '';
+  matchReports = [];
 }
 
-function getTeamNames() {
+function getMatchInfo() {
   for (let i = 0; i < teams.length; i++) {
     if (matches[matches.length - 1]['homeTeam']['id'] === teams[i]['id']) {
       match1HomeTeam = teams[i]['shortName'];
@@ -168,7 +174,13 @@ function getTeamNames() {
       match4AwayTeam = teams[i]['shortName'];
     }
   }
+  match1Date = matches[matches.length - 1]['utcDate'].slice(0, matches[matches.length - 1]['utcDate'].indexOf('T'));
+  match2Date = matches[matches.length - 2]['utcDate'].slice(0, matches[matches.length - 2]['utcDate'].indexOf('T'));
+  match3Date = matches[matches.length - 3]['utcDate'].slice(0, matches[matches.length - 3]['utcDate'].indexOf('T'));
+  match4Date = matches[matches.length - 4]['utcDate'].slice(0, matches[matches.length - 4]['utcDate'].indexOf('T'));
+  getNewsArticle();
 }
+
 
 function colorScore() {
   if(match1HomeScore > match1AwayScore) {
@@ -213,7 +225,7 @@ function colorScore() {
   }
 }
 
-function populateMatchHistory() {
+function getMatchResults() {
   match1HomeScore = matches[matches.length - 1]['score']['fullTime']['homeTeam'];
   match1AwayScore = matches[matches.length - 1]['score']['fullTime']['awayTeam'];
   match2HomeScore = matches[matches.length - 2]['score']['fullTime']['homeTeam'];
@@ -222,7 +234,7 @@ function populateMatchHistory() {
   match3AwayScore = matches[matches.length - 3]['score']['fullTime']['awayTeam'];
   match4HomeScore = matches[matches.length - 4]['score']['fullTime']['homeTeam'];
   match4AwayScore = matches[matches.length - 4]['score']['fullTime']['awayTeam'];
-  getTeamNames();
+  getMatchInfo();
   colorScore();
   match1Home.textContent = `${match1HomeTeam} ${match1HomeScore}`;
   match1Away.textContent = `${match1AwayScore} ${match1AwayTeam}`;
@@ -242,6 +254,26 @@ function handleGetError(error) {
 
 function handleGetTeamsSuccess(data) {
   teams = data.teams;
+  teams[0].tag = 'arsenal';
+  teams[1].tag = 'aston-villa';
+  teams[2].tag = 'chelsea';
+  teams[3].tag = 'everton';
+  teams[4].tag = 'liverpool';
+  teams[5].tag = 'manchestercity';
+  teams[6].tag = 'manchester-united';
+  teams[7].tag = 'newcastleunited';
+  teams[8].tag = 'norwichcity';
+  teams[9].tag = 'tottenham-hotspur';
+  teams[10].tag = 'wolves';
+  teams[11].tag = 'burnley';
+  teams[12].tag = 'leicestercity';
+  teams[13].tag = 'southampton';
+  teams[14].tag = 'watford';
+  teams[15].tag = 'crystalpalace';
+  teams[16].tag = 'sheffieldunited';
+  teams[17].tag = 'brightonfootball';
+  teams[18].tag = 'westhamunited';
+  teams[19].tag = 'bournemouth';
 }
 
 function getTeams() {
@@ -281,16 +313,15 @@ function getAllMatches() {
   })
 }
 
-function handleGetNewsArticleSuccess (data) {
-  matchReport = data.response.results;
-  const text1 = matchReport[0].webTitle;
-  const text2 = matchReport[1].webTitle;
-  const text3 = matchReport[2].webTitle;
-  const text4 = matchReport[3].webTitle;
-  const link1 = matchReport[0].webUrl;
-  const link2 = matchReport[1].webUrl;
-  const link3 = matchReport[2].webUrl;
-  const link4 = matchReport[3].webUrl;
+function renderMatchReports() {
+  const text1 = matchReports[0].webTitle;
+  const text2 = matchReports[1].webTitle;
+  const text3 = matchReports[2].webTitle;
+  const text4 = matchReports[3].webTitle;
+  const link1 = matchReports[0].webUrl;
+  const link2 = matchReports[1].webUrl;
+  const link3 = matchReports[2].webUrl;
+  const link4 = matchReports[3].webUrl;
   article1.textContent = text1;
   article2.textContent = text2;
   article3.textContent = text3;
@@ -299,9 +330,12 @@ function handleGetNewsArticleSuccess (data) {
   article2.setAttribute('href', link2);
   article3.setAttribute('href', link3);
   article4.setAttribute('href', link4);
-  populateTeam();
-  populateMatchHistory();
   loader.classList.add('d-none');
+}
+
+function handleGetNewsArticleSuccess (data) {
+  matchReports = data.response.results;
+  renderMatchReports();
 }
 
 function getNewsArticle() {
@@ -310,9 +344,10 @@ function getNewsArticle() {
     url: "https://content.guardianapis.com/search",
     data: {
       "api-key": "a8d15746-592e-4adf-96a5-171b4d3e254c",
-      "tag": "tone/matchreports,football/premierleague",
+      "tag": `tone/matchreports,football/premierleague,football/${teams[teamSelected].tag}`,
       "q": teams[teamSelected].name,
-      "order-by": "newest",
+      "to-date": '2020-07-26',
+      "order-by": 'newest',
       "page-size": 4
     },
     error: handleGetError,
