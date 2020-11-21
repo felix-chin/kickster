@@ -60,7 +60,7 @@ const tryAgainButton = document.querySelector('.try-again-btn');
 teamLogos.addEventListener('click', onLogoClick);
 homeButton.addEventListener('click', reset);
 matchResults.addEventListener('click', getHighlights);
-closeButton.addEventListener('click', function () {
+closeButton.addEventListener('click', () => {
   highlights.classList.add('d-none');
   iframe.src = 'about:blank';
 })
