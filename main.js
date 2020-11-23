@@ -28,6 +28,7 @@ const date = new Date();
 const currentDate = new Date(date.getTime() - (12*60*60*1000) - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
 const chooseTeamHeading = document.querySelector('.choose-team-heading');
 const teamLogos = document.querySelector('.team-logos-wrapper');
+const playersTable = document.querySelector('.players-table');
 const homeHeader = document.querySelector('.home-header');
 const homePage = document.querySelector('.home');
 const detailsHeader = document.querySelector('.details-header');
@@ -90,6 +91,7 @@ function onLogoClick(event) {
   displayClubHeader();
   getMatchResults();
   initMap();
+  getPlayers(teams[teamSelected]['id']);
 }
 
 function getHighlights(event) {
@@ -274,6 +276,9 @@ function handleGetPlayersSuccess(data) {
     name.textContent = player.name;
     pos.textContent = player.position;
     nat.textContent = player.nationality;
+    row.append(name, pos, nat);
+    playersTable.appendChild(row);
+
   })
 }
 
