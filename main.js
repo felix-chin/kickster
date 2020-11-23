@@ -264,6 +264,25 @@ function renderTeams(teams) {
   })
 }
 
+function handleGetPlayersSuccess(data) {
+  players = data.squad;
+  players.forEach(player => {
+
+  })
+}
+
+function getPlayers(team) {
+  $.ajax({
+    method: "GET",
+    url: `https://api.football-data.org/v2/teams/${team}`,
+    headers: {
+      "X-Auth-Token": "2e33b10247bd4841be2fec54f309863c"
+    },
+    error: handleGetError,
+    success: handleGetPlayersSuccess
+  })
+}
+
 function handleGetTeamsSuccess(data) {
   teams = data.teams;
   renderTeams(teams);
