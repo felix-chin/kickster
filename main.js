@@ -267,7 +267,13 @@ function renderTeams(teams) {
 function handleGetPlayersSuccess(data) {
   players = data.squad;
   players.forEach(player => {
-
+    const row = document.createElement('tr');
+    const name = document.createElement('td');
+    const pos = document.createElement('td');
+    const nat = document.createElement('td');
+    name.textContent = player.name;
+    pos.textContent = player.position;
+    nat.textContent = player.nationality;
   })
 }
 
