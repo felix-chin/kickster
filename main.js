@@ -1,5 +1,6 @@
 let teamSelected = null;
 let teams = [];
+let players = [];
 let matches = [];
 let allMatches = [];
 let matchReports= [];
@@ -147,6 +148,8 @@ function reset() {
   match4Away.style.color = '';
   match4Away.style.fontWeight = '';
   matchReports = [];
+  players = [];
+  playersTable.innerHTML = '';
 }
 
 function getMatchInfo() {
