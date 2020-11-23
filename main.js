@@ -252,8 +252,21 @@ function handleGetError(error) {
   loader.classList.add('d-none');
 }
 
+function renderTeams(teams) {
+  teams.forEach((team, i) => {
+    const div = document.createElement('div');
+    const img = document.createElement('img');
+    div.className = 'col-sm-2 col-3 team-logo';
+    img.setAttribute('src', team.crestUrl);
+    img.setAttribute('data-team', i);
+    div.appendChild(img);
+    teamLogos.firstElementChild.appendChild(div);
+  })
+}
+
 function handleGetTeamsSuccess(data) {
   teams = data.teams;
+  renderTeams(teams);
   teams[0].tag = 'arsenal';
   teams[1].tag = 'aston-villa';
   teams[2].tag = 'chelsea';
@@ -282,9 +295,6 @@ function getTeams() {
     url: "https://api.football-data.org/v2/competitions/2021/teams",
     headers: {
       "X-Auth-Token":"2e33b10247bd4841be2fec54f309863c"
-    },
-    data: {
-      "season": "2019"
     },
     error: handleGetError,
     success: handleGetTeamsSuccess
