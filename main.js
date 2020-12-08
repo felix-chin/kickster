@@ -91,7 +91,6 @@ function onLogoClick(event) {
   )
   displayClubHeader();
   getMatchResults();
-  initMap();
   getPlayers(teams[teamSelected]['id']);
 }
 
@@ -399,25 +398,25 @@ function getNewsArticle() {
   })
 }
 
-function initMap() {
-  const map = new google.maps.Map(
-    document.getElementById('map'), {
-      zoom: 15,
-      gestureHandling: 'cooperative'
-    });
-  const geocoder = new google.maps.Geocoder();
-  geocodeAddress(geocoder, map);
-}
+// function initMap() {
+//   const map = new google.maps.Map(
+//     document.getElementById('map'), {
+//       zoom: 15,
+//       gestureHandling: 'cooperative'
+//     });
+//   const geocoder = new google.maps.Geocoder();
+//   geocodeAddress(geocoder, map);
+// }
 
-function geocodeAddress(geocoder, resultsMap) {
-  const address = teams[teamSelected]["address"];
-  geocoder.geocode({ 'address': address }, function (results, status) {
-    if (status === 'OK') {
-      resultsMap.setCenter(results[0].geometry.location);
-      var marker = new google.maps.Marker({
-        map: resultsMap,
-        position: results[0].geometry.location
-      });
-    }
-  });
-}
+// function geocodeAddress(geocoder, resultsMap) {
+//   const address = teams[teamSelected]["address"];
+//   geocoder.geocode({ 'address': address }, function (results, status) {
+//     if (status === 'OK') {
+//       resultsMap.setCenter(results[0].geometry.location);
+//       var marker = new google.maps.Marker({
+//         map: resultsMap,
+//         position: results[0].geometry.location
+//       });
+//     }
+//   });
+// }
