@@ -387,11 +387,8 @@ function getNewsArticle() {
     url: "https://content.guardianapis.com/search",
     data: {
       "api-key": "a8d15746-592e-4adf-96a5-171b4d3e254c",
-      "tag": `tone/matchreports,football/premierleague,football/${teams[teamSelected].tag}`,
       "q": teams[teamSelected].name,
-      "to-date": '2020-07-26',
-      "order-by": 'newest',
-      "page-size": 4
+      "order-by": 'newest'
     },
     error: handleGetError,
     success: handleGetNewsArticleSuccess

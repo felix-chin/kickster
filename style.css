@@ -154,7 +154,6 @@ html, body {
 
 .team-details {
   display: flex;
-  min-height: 81vh;
 }
 
 #map {
