@@ -354,7 +354,7 @@ function getAllMatches() {
       "X-Auth-Token":"2e33b10247bd4841be2fec54f309863c"
     },
     data: {
-      "season": "2019"
+      "status": "FINISHED"
     },
     error: handleGetError,
     success: handleGetAllMatchesSuccess
