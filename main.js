@@ -47,10 +47,6 @@ const match3Home = document.querySelector('.match3Home');
 const match3Away = document.querySelector('.match3Away');
 const match4Home = document.querySelector('.match4Home');
 const match4Away = document.querySelector('.match4Away');
-const article1 = document.querySelector('.article1');
-const article2 = document.querySelector('.article2');
-const article3 = document.querySelector('.article3');
-const article4 = document.querySelector('.article4');
 const loader = document.querySelector('.loading-screen');
 const matchResults = document.querySelector('.match-results');
 const highlights = document.querySelector('.highlights');
@@ -58,7 +54,10 @@ const closeButton = document.querySelector('.close-button');
 const iframe = document.querySelector('iframe');
 const tryAgainModal = document.querySelector('.try-again');
 const tryAgainButton = document.querySelector('.try-again-btn');
+const menuBar = document.querySelector('.menu-bar');
+const articleGroup = document.querySelector('.article-group');
 
+menuBar.addEventListener('click', onMenuBarClick)
 teamLogos.addEventListener('click', onLogoClick);
 homeButton.addEventListener('click', reset);
 matchResults.addEventListener('click', getHighlights);
@@ -77,6 +76,12 @@ start();
 function start() {
   getTeams();
   getAllMatches();
+}
+
+function onMenuBarClick(event) {
+  if (event.target.getAttribute('id') === 'news') {
+
+  }
 }
 
 function onLogoClick(event) {
@@ -357,22 +362,17 @@ function getAllMatches() {
 }
 
 function renderMatchReports() {
-  const text1 = matchReports[0].webTitle;
-  const text2 = matchReports[1].webTitle;
-  const text3 = matchReports[2].webTitle;
-  const text4 = matchReports[3].webTitle;
-  const link1 = matchReports[0].webUrl;
-  const link2 = matchReports[1].webUrl;
-  const link3 = matchReports[2].webUrl;
-  const link4 = matchReports[3].webUrl;
-  article1.textContent = text1;
-  article2.textContent = text2;
-  article3.textContent = text3;
-  article4.textContent = text4;
-  article1.setAttribute('href', link1);
-  article2.setAttribute('href', link2);
-  article3.setAttribute('href', link3);
-  article4.setAttribute('href', link4);
+  matchReports.forEach(report => {
+    const div = document.createElement('div');
+    const anchor = document.createElement('a');
+    const text = report.webTitle;
+    const link = report.webUrl;
+    anchor.textContent = text;
+    anchor.setAttribute('href', link);
+    anchor.setAttribute('target', '_blank');
+    div.append(anchor);
+    articleGroup.append(div);
+  })
   loader.classList.add('d-none');
 }
 
