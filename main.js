@@ -47,15 +47,18 @@ const match3Home = document.querySelector('.match3Home');
 const match3Away = document.querySelector('.match3Away');
 const match4Home = document.querySelector('.match4Home');
 const match4Away = document.querySelector('.match4Away');
+const articleGroup = document.querySelector('.article-group');
 const loader = document.querySelector('.loading-screen');
-const matchResults = document.querySelector('.match-results');
 const highlights = document.querySelector('.highlights');
 const closeButton = document.querySelector('.close-button');
 const iframe = document.querySelector('iframe');
 const tryAgainModal = document.querySelector('.try-again');
 const tryAgainButton = document.querySelector('.try-again-btn');
 const menuBar = document.querySelector('.menu-bar');
-const articleGroup = document.querySelector('.article-group');
+const news = document.querySelector('.article');
+const matchResults = document.querySelector('.match-results');
+const stats = document.querySelector('.stats');
+const roster = document.querySelector('.roster');
 
 menuBar.addEventListener('click', onMenuBarClick)
 teamLogos.addEventListener('click', onLogoClick);
@@ -80,7 +83,25 @@ function start() {
 
 function onMenuBarClick(event) {
   if (event.target.getAttribute('id') === 'news') {
-
+    news.classList.remove('d-none');
+    matchResults.classList.add('d-none');
+    stats.classList.add('d-none');
+    roster.classList.add('d-none');
+  } else if (event.target.getAttribute('id') === 'sched') {
+    news.classList.add('d-none');
+    matchResults.classList.remove('d-none');
+    stats.classList.add('d-none');
+    roster.classList.add('d-none');
+  } else if (event.target.getAttribute('id') === 'roster') {
+    news.classList.add('d-none');
+    matchResults.classList.add('d-none');
+    stats.classList.add('d-none');
+    roster.classList.remove('d-none');
+  } else if (event.target.getAttribute('id') === 'stats') {
+    news.classList.add('d-none');
+    matchResults.classList.add('d-none');
+    stats.classList.remove('d-none');
+    roster.classList.add('d-none');
   }
 }
 

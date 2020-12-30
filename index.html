@@ -132,20 +132,24 @@
       <span id="roster" class="px-5">Roster</span>
       <span id="stats" class="px-5">Stats</span>
     </div>
-    <div class="row team-details d-none">
-      <div class="col-sm-12 match-results d-flex flex-column justify-content-center align-items-center py-2">
-        <h5 class="font-italic passion-one-font animate-fade-in">Match Results & Highlights</h5>
-        <div class="animate-fade-in"><span class="match1Home"></span> - <span class="match1Away"></span><i data-video="1" class="hover fas fa-play-circle pr-4"></i></div>
-        <div class="animate-fade-in"><span class="match2Home"></span> - <span class="match2Away"></span><i data-video="2" class="hover fas fa-play-circle pr-4"></i></div>
-        <div class="animate-fade-in"><span class="match3Home"></span> - <span class="match3Away"></span><i data-video="3" class="hover fas fa-play-circle pr-4"></i></div>
-        <div class="animate-fade-in"><span class="match4Home"></span> - <span class="match4Away"></span><i data-video="4" class="hover fas fa-play-circle pr-4"></i></div>
-      </div>
-      <div class="col-sm-12 article d-flex flex-column justify-content-center align-items-center py-2">
-        <h5 class="font-italic passion-one-font animate-fade-in">Team News</h5>
-        <div class="article-group animate-fade-in">
+    <div class="team-details row d-none">
+      <div class="article">
+        <div class=" col-sm-12 d-flex flex-column justify-content-center align-items-center py-2">
+          <h5 class="font-italic passion-one-font animate-fade-in">Team News</h5>
+          <div class="article-group animate-fade-in">
+          </div>
         </div>
       </div>
-      <div>
+      <div class="match-results d-none">
+        <div class="col-sm-12 d-flex flex-column justify-content-center align-items-center py-2">
+          <h5 class="font-italic passion-one-font animate-fade-in">Match Results & Highlights</h5>
+          <div class="animate-fade-in"><span class="match1Home"></span> - <span class="match1Away"></span><i data-video="1" class="hover fas fa-play-circle pr-4"></i></div>
+          <div class="animate-fade-in"><span class="match2Home"></span> - <span class="match2Away"></span><i data-video="2" class="hover fas fa-play-circle pr-4"></i></div>
+          <div class="animate-fade-in"><span class="match3Home"></span> - <span class="match3Away"></span><i data-video="3" class="hover fas fa-play-circle pr-4"></i></div>
+          <div class="animate-fade-in"><span class="match4Home"></span> - <span class="match4Away"></span><i data-video="4" class="hover fas fa-play-circle pr-4"></i></div>
+        </div>
+      </div>
+      <div class="stats d-none">
         <h5>Statistics</h5>
         <table>
           <thead>
@@ -196,7 +200,7 @@
           </tbody>
         </table>
       </div>
-      <div>
+      <div class="roster d-none">
         <h5>ROSTER</h5>
         <table>
           <thead>
@@ -210,12 +214,9 @@
           </tbody>
         </table>
       </div>
-      <!-- <div id="map"></div>
-      <h6 class="font-italic passion-one-font stadium-location">Stadium Location</h6> -->
     </div>
   </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC37G_TaabnjhwNuCove5iXzL_qQmS7X7E"></script>
   <script src="main.js"></script>
 </body>
 </html>
