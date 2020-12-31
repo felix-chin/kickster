@@ -73,6 +73,9 @@ tryAgainButton.addEventListener('click', () => {
   tryAgainModal.classList.add('d-none');
   loader.classList.remove('d-none');
 })
+window.addEventListener('load', () => {
+  loader.classList.remove('d-none');
+})
 
 start();
 
@@ -285,25 +288,25 @@ function handleGetError(error) {
 }
 
 function renderTeams(teams) {
-  return new Promise(resolve => {
-    teams.forEach((team, i) => {
-      const div = document.createElement('div');
-      const img = document.createElement('img');
-      const clubCrest = new Image();
-      clubCrest.onload = function() {
-        img.src = this.src;
-      }
-      clubCrest.src = team.crestUrl;
-      div.className = 'col-sm-2 col-3 team-logo';
-      img.setAttribute('data-team', i);
-      div.appendChild(img);
-      teamLogos.firstElementChild.appendChild(div);
-    })
-    resolve();
-  })
-  .then(() => {
-    loader.classList.add('d-none');
-  })
+  for (let i = 0; i < teams.length; i++) {
+    const linkEl = document.createElement('link');
+    linkEl.setAttribute('rel', 'preload');
+    linkEl.setAttribute('href', teams[i].crestUrl);
+    linkEl.setAttribute('as', 'image');
+    document.head.appendChild(linkEl);
+    const div = document.createElement('div');
+    const img = document.createElement('img');
+    const clubCrest = new Image();
+    clubCrest.onload = () => {
+      img.src = clubCrest.src;
+    }
+    clubCrest.src = teams[i].crestUrl;
+    div.className = 'col-sm-2 col-3 team-logo';
+    img.setAttribute('data-team', i);
+    div.appendChild(img);
+    teamLogos.firstElementChild.appendChild(div);
+  }
+  loader.classList.add('d-none');
 }
 
 function handleGetPlayersSuccess(data) {
