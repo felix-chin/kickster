@@ -148,6 +148,7 @@ function displayClubHeader() {
   detailsTeamLogo.classList.add(teams[teamSelected].tla);
   teamDetails.classList.remove('d-none');
   detailsHeader.classList.remove('d-none');
+  menuBar.classList.remove('d-none');
 }
 
 function reset() {
@@ -155,6 +156,7 @@ function reset() {
   homePage.classList.remove('d-none');
   teamDetails.classList.add('d-none');
   detailsHeader.classList.add('d-none');
+  menuBar.classList.add('d-none');
   detailsTeamLogo.classList.remove(teams[teamSelected].tla);
   match1Home.style.color = '';
   match1Home.style.fontWeight = '';
@@ -283,14 +285,24 @@ function handleGetError(error) {
 }
 
 function renderTeams(teams) {
-  teams.forEach((team, i) => {
-    const div = document.createElement('div');
-    const img = document.createElement('img');
-    div.className = 'col-sm-2 col-3 team-logo';
-    img.setAttribute('src', team.crestUrl);
-    img.setAttribute('data-team', i);
-    div.appendChild(img);
-    teamLogos.firstElementChild.appendChild(div);
+  return new Promise(resolve => {
+    teams.forEach((team, i) => {
+      const div = document.createElement('div');
+      const img = document.createElement('img');
+      const clubCrest = new Image();
+      clubCrest.onload = function() {
+        img.src = this.src;
+      }
+      clubCrest.src = team.crestUrl;
+      div.className = 'col-sm-2 col-3 team-logo';
+      img.setAttribute('data-team', i);
+      div.appendChild(img);
+      teamLogos.firstElementChild.appendChild(div);
+    })
+    resolve();
+  })
+  .then(() => {
+    loader.classList.add('d-none');
   })
 }
 
@@ -362,7 +374,6 @@ function getTeams() {
 
 function handleGetAllMatchesSuccess(data) {
   allMatches = data.matches;
-  loader.classList.add('d-none');
   chooseTeamHeading.classList.add('animate-fade-in');
   teamLogos.classList.add('animate-bottom');
 }
