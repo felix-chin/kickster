@@ -20,11 +20,6 @@ let match3HomeScore = null;
 let match3AwayScore = null;
 let match4HomeScore = null;
 let match4AwayScore = null;
-let match1Date = null;
-let match2Date = null;
-let match3Date = null;
-let match4Date = null;
-let matchVideo = null;
 const date = new Date();
 const currentDate = new Date(date.getTime() - (12*60*60*1000) - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
 const chooseTeamHeading = document.querySelector('.choose-team-heading');
@@ -59,6 +54,7 @@ const news = document.querySelector('.article');
 const matchResults = document.querySelector('.match-results');
 const stats = document.querySelector('.stats');
 const roster = document.querySelector('.roster');
+const results = document.querySelector('.results');
 
 menuBar.addEventListener('click', onMenuBarClick)
 teamLogos.addEventListener('click', onLogoClick);
@@ -119,7 +115,8 @@ function onLogoClick(event) {
     match => match['awayTeam'].id === teams[teamSelected].id || match['homeTeam'].id === teams[teamSelected].id
   )
   displayClubHeader();
-  getMatchResults();
+  getMatchInfo();
+  // getMatchResults();
   getPlayers(teams[teamSelected]['id']);
 }
 
@@ -183,106 +180,90 @@ function reset() {
   players = [];
   playersTable.innerHTML = '';
   logoWrapper.innerHTML = '';
+  results.innerHTML = '';
 }
 
 function getMatchInfo() {
-  for (let i = 0; i < teams.length; i++) {
-    if (matches[matches.length - 1]['homeTeam']['id'] === teams[i]['id']) {
-      match1HomeTeam = teams[i]['shortName'];
-    }
-    if (matches[matches.length - 1]['awayTeam']['id'] === teams[i]['id']) {
-      match1AwayTeam = teams[i]['shortName'];
-    }
-    if (matches[matches.length - 2]['homeTeam']['id'] === teams[i]['id']) {
-      match2HomeTeam = teams[i]['shortName'];
-    }
-    if (matches[matches.length - 2]['awayTeam']['id'] === teams[i]['id']) {
-      match2AwayTeam = teams[i]['shortName'];
-    }
-    if (matches[matches.length - 3]['homeTeam']['id'] === teams[i]['id']) {
-      match3HomeTeam = teams[i]['shortName'];
-    }
-    if (matches[matches.length - 3]['awayTeam']['id'] === teams[i]['id']) {
-      match3AwayTeam = teams[i]['shortName'];
-    }
-    if (matches[matches.length - 4]['homeTeam']['id'] === teams[i]['id']) {
-      match4HomeTeam = teams[i]['shortName'];
-    }
-    if (matches[matches.length - 4]['awayTeam']['id'] === teams[i]['id']) {
-      match4AwayTeam = teams[i]['shortName'];
-    }
+  for (let i = 0; i < matches.length; i++) {
+    const div = document.createElement('div');
+    const span1 = document.createElement('span');
+    const span2 = document.createElement('span');
+    const span3 = document.createElement('span');
+    const date = matches[i].utcDate.split('T')[0];
+    const opp = `${matches[i].homeTeam.name} v ${matches[i].awayTeam.name}`;
+    const score = `${matches[i].score.fullTime.homeTeam} - ${matches[i].score.fullTime.awayTeam}`;
+    span1.textContent = date;
+    span2.textContent = opp;
+    span3.textContent = score;
+    div.append(span1, span2, span3);
+    results.appendChild(div);
   }
-  match1Date = matches[matches.length - 1]['utcDate'].slice(0, matches[matches.length - 1]['utcDate'].indexOf('T'));
-  match2Date = matches[matches.length - 2]['utcDate'].slice(0, matches[matches.length - 2]['utcDate'].indexOf('T'));
-  match3Date = matches[matches.length - 3]['utcDate'].slice(0, matches[matches.length - 3]['utcDate'].indexOf('T'));
-  match4Date = matches[matches.length - 4]['utcDate'].slice(0, matches[matches.length - 4]['utcDate'].indexOf('T'));
   getNewsArticle();
 }
 
 
-function colorScore() {
-  if(match1HomeScore > match1AwayScore) {
-    match1Home.style.color = '#E4B222';
-    match1Home.style.fontWeight = 'bold';
-  } else if (match1AwayScore > match1HomeScore) {
-    match1Away.style.color = '#E4B222';
-    match1Away.style.fontWeight = 'bold';
-  } else if (match1AwayScore === match1HomeScore) {
-    match1Away.style.fontWeight = 'bold';
-    match1Home.style.fontWeight = 'bold';
-  }
-  if (match2HomeScore > match2AwayScore) {
-    match2Home.style.color = '#E4B222';
-    match2Home.style.fontWeight = 'bold';
-  } else if (match2AwayScore > match2HomeScore) {
-    match2Away.style.color = '#E4B222';
-    match2Away.style.fontWeight = 'bold';
-  } else if (match2AwayScore === match2HomeScore) {
-    match2Away.style.fontWeight = 'bold';
-    match2Home.style.fontWeight = 'bold';
-  }
-  if (match3HomeScore > match3AwayScore) {
-    match3Home.style.color = '#E4B222';
-    match3Home.style.fontWeight = 'bold';
-  } else if (match3AwayScore > match3HomeScore) {
-    match3Away.style.color = '#E4B222';
-    match3Away.style.fontWeight = 'bold';
-  } else if (match3AwayScore === match3HomeScore) {
-    match3Away.style.fontWeight = 'bold';
-    match3Home.style.fontWeight = 'bold';
-  }
-  if (match4HomeScore > match4AwayScore) {
-    match4Home.style.color = '#E4B222';
-    match4Home.style.fontWeight = 'bold';
-  } else if (match4AwayScore > match4HomeScore) {
-    match4Away.style.color = '#E4B222';
-    match4Away.style.fontWeight = 'bold';
-  } else if (match4AwayScore === match4HomeScore) {
-    match4Away.style.fontWeight = 'bold';
-    match4Home.style.fontWeight = 'bold';
-  }
-}
+// function colorScore() {
+//   if(match1HomeScore > match1AwayScore) {
+//     match1Home.style.color = '#E4B222';
+//     match1Home.style.fontWeight = 'bold';
+//   } else if (match1AwayScore > match1HomeScore) {
+//     match1Away.style.color = '#E4B222';
+//     match1Away.style.fontWeight = 'bold';
+//   } else if (match1AwayScore === match1HomeScore) {
+//     match1Away.style.fontWeight = 'bold';
+//     match1Home.style.fontWeight = 'bold';
+//   }
+//   if (match2HomeScore > match2AwayScore) {
+//     match2Home.style.color = '#E4B222';
+//     match2Home.style.fontWeight = 'bold';
+//   } else if (match2AwayScore > match2HomeScore) {
+//     match2Away.style.color = '#E4B222';
+//     match2Away.style.fontWeight = 'bold';
+//   } else if (match2AwayScore === match2HomeScore) {
+//     match2Away.style.fontWeight = 'bold';
+//     match2Home.style.fontWeight = 'bold';
+//   }
+//   if (match3HomeScore > match3AwayScore) {
+//     match3Home.style.color = '#E4B222';
+//     match3Home.style.fontWeight = 'bold';
+//   } else if (match3AwayScore > match3HomeScore) {
+//     match3Away.style.color = '#E4B222';
+//     match3Away.style.fontWeight = 'bold';
+//   } else if (match3AwayScore === match3HomeScore) {
+//     match3Away.style.fontWeight = 'bold';
+//     match3Home.style.fontWeight = 'bold';
+//   }
+//   if (match4HomeScore > match4AwayScore) {
+//     match4Home.style.color = '#E4B222';
+//     match4Home.style.fontWeight = 'bold';
+//   } else if (match4AwayScore > match4HomeScore) {
+//     match4Away.style.color = '#E4B222';
+//     match4Away.style.fontWeight = 'bold';
+//   } else if (match4AwayScore === match4HomeScore) {
+//     match4Away.style.fontWeight = 'bold';
+//     match4Home.style.fontWeight = 'bold';
+//   }
+// }
 
-function getMatchResults() {
-  match1HomeScore = matches[matches.length - 1]['score']['fullTime']['homeTeam'];
-  match1AwayScore = matches[matches.length - 1]['score']['fullTime']['awayTeam'];
-  match2HomeScore = matches[matches.length - 2]['score']['fullTime']['homeTeam'];
-  match2AwayScore = matches[matches.length - 2]['score']['fullTime']['awayTeam'];
-  match3HomeScore = matches[matches.length - 3]['score']['fullTime']['homeTeam'];
-  match3AwayScore = matches[matches.length - 3]['score']['fullTime']['awayTeam'];
-  match4HomeScore = matches[matches.length - 4]['score']['fullTime']['homeTeam'];
-  match4AwayScore = matches[matches.length - 4]['score']['fullTime']['awayTeam'];
-  getMatchInfo();
-  colorScore();
-  match1Home.textContent = `${match1HomeTeam} ${match1HomeScore}`;
-  match1Away.textContent = `${match1AwayScore} ${match1AwayTeam}`;
-  match2Home.textContent = `${match2HomeTeam} ${match2HomeScore}`;
-  match2Away.textContent = `${match2AwayScore} ${match2AwayTeam}`;
-  match3Home.textContent = `${match3HomeTeam} ${match3HomeScore}`;
-  match3Away.textContent = `${match3AwayScore} ${match3AwayTeam}`;
-  match4Home.textContent = `${match4HomeTeam} ${match4HomeScore}`;
-  match4Away.textContent = `${match4AwayScore} ${match4AwayTeam}`;
-}
+// function getMatchResults() {
+//   match1HomeScore = matches[matches.length - 1]['score']['fullTime']['homeTeam'];
+//   match1AwayScore = matches[matches.length - 1]['score']['fullTime']['awayTeam'];
+//   match2HomeScore = matches[matches.length - 2]['score']['fullTime']['homeTeam'];
+//   match2AwayScore = matches[matches.length - 2]['score']['fullTime']['awayTeam'];
+//   match3HomeScore = matches[matches.length - 3]['score']['fullTime']['homeTeam'];
+//   match3AwayScore = matches[matches.length - 3]['score']['fullTime']['awayTeam'];
+//   match4HomeScore = matches[matches.length - 4]['score']['fullTime']['homeTeam'];
+//   match4AwayScore = matches[matches.length - 4]['score']['fullTime']['awayTeam'];
+//
+//   match1Home.textContent = `${match1HomeTeam} ${match1HomeScore}`;
+//   match1Away.textContent = `${match1AwayScore} ${match1AwayTeam}`;
+//   match2Home.textContent = `${match2HomeTeam} ${match2HomeScore}`;
+//   match2Away.textContent = `${match2AwayScore} ${match2AwayTeam}`;
+//   match3Home.textContent = `${match3HomeTeam} ${match3HomeScore}`;
+//   match3Away.textContent = `${match3AwayScore} ${match3AwayTeam}`;
+//   match4Home.textContent = `${match4HomeTeam} ${match4HomeScore}`;
+//   match4Away.textContent = `${match4AwayScore} ${match4AwayTeam}`;
+// }
 
 function handleGetError(error) {
   console.error(error);
@@ -430,26 +411,3 @@ function getNewsArticle() {
     success: handleGetNewsArticleSuccess
   })
 }
-
-// function initMap() {
-//   const map = new google.maps.Map(
-//     document.getElementById('map'), {
-//       zoom: 15,
-//       gestureHandling: 'cooperative'
-//     });
-//   const geocoder = new google.maps.Geocoder();
-//   geocodeAddress(geocoder, map);
-// }
-
-// function geocodeAddress(geocoder, resultsMap) {
-//   const address = teams[teamSelected]["address"];
-//   geocoder.geocode({ 'address': address }, function (results, status) {
-//     if (status === 'OK') {
-//       resultsMap.setCenter(results[0].geometry.location);
-//       var marker = new google.maps.Marker({
-//         map: resultsMap,
-//         position: results[0].geometry.location
-//       });
-//     }
-//   });
-// }
