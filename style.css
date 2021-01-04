@@ -156,11 +156,6 @@ html, body {
   display: flex;
 }
 
-#map {
-  min-height: 30vh;
-  width: 100%;
-}
-
 .modal-bg {
   background-color: #9D175F;
   position: fixed;

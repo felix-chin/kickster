@@ -160,22 +160,22 @@ function reset() {
   teamDetails.classList.add('d-none');
   detailsHeader.classList.add('d-none');
   menuBar.classList.add('d-none');
-  match1Home.style.color = '';
-  match1Home.style.fontWeight = '';
-  match1Away.style.color = '';
-  match1Away.style.fontWeight = '';
-  match2Home.style.color = '';
-  match2Home.style.fontWeight = '';
-  match2Away.style.color = '';
-  match2Away.style.fontWeight = '';
-  match3Home.style.color = '';
-  match3Home.style.fontWeight = '';
-  match3Away.style.color = '';
-  match3Away.style.fontWeight = '';
-  match4Home.style.color = '';
-  match4Home.style.fontWeight = '';
-  match4Away.style.color = '';
-  match4Away.style.fontWeight = '';
+  // match1Home.style.color = '';
+  // match1Home.style.fontWeight = '';
+  // match1Away.style.color = '';
+  // match1Away.style.fontWeight = '';
+  // match2Home.style.color = '';
+  // match2Home.style.fontWeight = '';
+  // match2Away.style.color = '';
+  // match2Away.style.fontWeight = '';
+  // match3Home.style.color = '';
+  // match3Home.style.fontWeight = '';
+  // match3Away.style.color = '';
+  // match3Away.style.fontWeight = '';
+  // match4Home.style.color = '';
+  // match4Home.style.fontWeight = '';
+  // match4Away.style.color = '';
+  // match4Away.style.fontWeight = '';
   matchReports = [];
   players = [];
   playersTable.innerHTML = '';
@@ -184,14 +184,19 @@ function reset() {
 }
 
 function getMatchInfo() {
-  for (let i = 0; i < matches.length; i++) {
+  for (let i = matches.length - 1; i >= 0; i--) {
     const div = document.createElement('div');
     const span1 = document.createElement('span');
     const span2 = document.createElement('span');
     const span3 = document.createElement('span');
     const date = matches[i].utcDate.split('T')[0];
-    const opp = `${matches[i].homeTeam.name} v ${matches[i].awayTeam.name}`;
     const score = `${matches[i].score.fullTime.homeTeam} - ${matches[i].score.fullTime.awayTeam}`;
+    let opp = '';
+    if (matches[i].homeTeam.name !== teams[teamSelected].name) {
+      opp = `@ ${matches[i].homeTeam.name}`;
+    } else {
+      opp = `vs ${matches[i].awayTeam.name}`;
+    }
     span1.textContent = date;
     span2.textContent = opp;
     span3.textContent = score;
