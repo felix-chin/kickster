@@ -37,7 +37,7 @@ const teamDetails = document.querySelector('.team-details');
 const team = document.querySelector('.team-name');
 const stadium = document.querySelector('.venue-name');
 const website = document.querySelector('.website');
-const detailsTeamLogo = document.querySelector('.details-team-logo');
+const logoWrapper = document.querySelector('.logo-wrapper');
 const homeButton = document.querySelector('.home-button');
 const match1Home = document.querySelector('.match1Home');
 const match1Away = document.querySelector('.match1Away');
@@ -142,16 +142,19 @@ function getHighlights(event) {
 }
 
 function displayClubHeader() {
+  const img = document.createElement('img');
+  img.classList.add('details-team-logo');
   homeHeader.classList.add('d-none');
   homePage.classList.add('d-none');
   team.textContent = teams[teamSelected].name;
   stadium.textContent = teams[teamSelected].venue;
   website.textContent = teams[teamSelected].website;
   website.setAttribute('href', teams[teamSelected].website);
-  detailsTeamLogo.classList.add(teams[teamSelected].tla);
+  img.src =teams[teamSelected].crestUrl;
   teamDetails.classList.remove('d-none');
   detailsHeader.classList.remove('d-none');
   menuBar.classList.remove('d-none');
+  logoWrapper.appendChild(img);
 }
 
 function reset() {
@@ -160,7 +163,6 @@ function reset() {
   teamDetails.classList.add('d-none');
   detailsHeader.classList.add('d-none');
   menuBar.classList.add('d-none');
-  detailsTeamLogo.classList.remove(teams[teamSelected].tla);
   match1Home.style.color = '';
   match1Home.style.fontWeight = '';
   match1Away.style.color = '';
@@ -180,6 +182,7 @@ function reset() {
   matchReports = [];
   players = [];
   playersTable.innerHTML = '';
+  logoWrapper.innerHTML = '';
 }
 
 function getMatchInfo() {
@@ -377,8 +380,6 @@ function getTeams() {
 
 function handleGetAllMatchesSuccess(data) {
   allMatches = data.matches;
-  chooseTeamHeading.classList.add('animate-fade-in');
-  teamLogos.classList.add('animate-bottom');
 }
 
 function getAllMatches() {
