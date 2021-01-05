@@ -4,6 +4,7 @@ let players = [];
 let matches = [];
 let allMatches = [];
 let matchReports= [];
+const today = new Date().getTime();
 const chooseTeamHeading = document.querySelector('.choose-team-heading');
 const teamLogos = document.querySelector('.team-logos-wrapper');
 const playersTable = document.querySelector('.players-table');
@@ -202,16 +203,30 @@ function renderTeams(teams) {
 
 function handleGetPlayersSuccess(data) {
   players = data.squad;
+  players.sort((a, b) => {
+    if (a.position < b.position) {
+      return - 1;
+    } else if (a.position > b.position) {
+      return 1;
+    } else {
+      return 0;
+    }
+  })
   players.forEach(player => {
     if (player.role === 'PLAYER') {
       const row = document.createElement('tr');
       const name = document.createElement('td');
       const pos = document.createElement('td');
       const nat = document.createElement('td');
+      const DOB = document.createElement('td');
+      const age = document.createElement('td');
+      const ageMS = new Date(player.dateOfBirth.split('T')[0])
       name.textContent = player.name;
       pos.textContent = player.position;
       nat.textContent = player.nationality;
-      row.append(name, pos, nat);
+      DOB.textContent = player.dateOfBirth.split('T')[0];
+      age.textContent = parseInt((today - ageMS.getTime())/(1000*60*60*24*365));
+      row.append(name, pos, nat, age, DOB);
       playersTable.appendChild(row);
     }
   })
@@ -291,8 +306,9 @@ function getNewsArticle() {
     url: "https://content.guardianapis.com/search",
     data: {
       "api-key": "a8d15746-592e-4adf-96a5-171b4d3e254c",
-      "q": teams[teamSelected].name,
-      "order-by": 'newest'
+      "q": `${teams[teamSelected].name}`,
+      "order-by": 'relevance',
+      "page-size": 10
     },
     error: handleGetError,
     success: handleGetNewsArticleSuccess

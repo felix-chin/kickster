@@ -213,6 +213,10 @@ html, body {
   right: 2%;
 }
 
+.roster {
+  font-size: 12px;
+}
+
 iframe {
   width: 320px;
   min-height: 180px;
@@ -327,6 +331,10 @@ iframe {
   .stadium-location {
     bottom: 8%;
     font-size: 24px;
+  }
+
+  .roster {
+    font-size: 15px;
   }
 }
 
