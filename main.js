@@ -163,9 +163,9 @@ function getMatchInfo() {
     span2.textContent = opp;
     span3.textContent = score;
     div.classList.add('row')
-    span1.classList.add('col-4');
-    span2.classList.add('col-auto');
-    span3.classList.add('col-2');
+    span1.classList.add('col-sm-4');
+    span2.classList.add('col-sm-6', 'col-md-7');
+    span3.classList.add('col-auto');
     div.append(span1, span2, span3);
     results.appendChild(div);
   }
@@ -211,7 +211,7 @@ function handleGetPlayersSuccess(data) {
       name.textContent = player.name;
       pos.textContent = player.position;
       nat.textContent = player.nationality;
-      row.append(pos, nat, name);
+      row.append(name, pos, nat);
       playersTable.appendChild(row);
     }
   })
@@ -232,26 +232,6 @@ function getPlayers(team) {
 function handleGetTeamsSuccess(data) {
   teams = data.teams;
   renderTeams(teams);
-  teams[0].tag = 'arsenal';
-  teams[1].tag = 'aston-villa';
-  teams[2].tag = 'chelsea';
-  teams[3].tag = 'everton';
-  teams[4].tag = 'liverpool';
-  teams[5].tag = 'manchestercity';
-  teams[6].tag = 'manchester-united';
-  teams[7].tag = 'newcastleunited';
-  teams[8].tag = 'norwichcity';
-  teams[9].tag = 'tottenham-hotspur';
-  teams[10].tag = 'wolves';
-  teams[11].tag = 'burnley';
-  teams[12].tag = 'leicestercity';
-  teams[13].tag = 'southampton';
-  teams[14].tag = 'watford';
-  teams[15].tag = 'crystalpalace';
-  teams[16].tag = 'sheffieldunited';
-  teams[17].tag = 'brightonfootball';
-  teams[18].tag = 'westhamunited';
-  teams[19].tag = 'bournemouth';
 }
 
 function getTeams() {
