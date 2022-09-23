@@ -2,12 +2,6 @@
 
 A mobile-responsive application for football enthusiasts who want to view the latest English Premier League match results and highlights. This application utilizes APIs from [football-data.org](https://www.football-data.org/), [The Guardian](https://open-platform.theguardian.com/), and [Google Maps](https://developers.google.com/maps/documentation).
 
-## Live demo:
-
-Try the application live at https://kickster.felixchin.com/
-
-Best viewed on iPhone 6/7/8.
-
 ## Technologies Used
 
 - JavaScript
